@@ -17,7 +17,7 @@ export default function Home() {
       id: 2,
       title: "Grow Your Wealth",
       desc: "Smart investment strategies to maximize your long-term returns.",
-      bg: "bg-[var(--accent)]",
+      bg: "bg-[var(--secondary)]",
       image: "/risk-management.png"
     },
     {
@@ -29,28 +29,24 @@ export default function Home() {
     }
   ];
 
-    
   const [current, setCurrent] = useState(0);
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  const prevSlide = () => { setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1))};
+  const nextSlide = () => { setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1))};
 
   return (
-    <main className="">
-      <section className='min-h-screen relative overflow-hidden'
-        style={{
+    <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-none">
+      <section 
+        className='h-screen snap-start relative overflow-hidden'
+        style = {{
           backgroundImage: `url(/HeroImage.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-        }}>
+        }}
+      >
       </section>
-            <section className="min-h-50">
-        <div className="relative w-full h-[500px] overflow-hidden bg-black text-white">
+      <section className="h-screen snap-start">
+        <div className="relative w-full h-full overflow-hidden bg-black text-white">
               {/* 2. Slider Track Container */}
               <div 
                 className="flex h-full transition-transform duration-500 ease-out"
@@ -65,15 +61,15 @@ export default function Home() {
                       <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 tracking-tight">
                         {slide.title}
                       </h2>
-                      <p className="text-md md:text-xl text-gray-300 max-w-xl font-light">
+                      <p className="text-md md:text-md text-gray-300 max-w-xl font-light font-sans">
                         {slide.desc}
                       </p>
                     </div>
-                    <img src={slide.image} alt={slide.title} className="w-80 h-60 object-cover mt-4  rounded-lg" />
+                    <img src={slide.image} alt={slide.title} className="w-80 h-auto object-cover mt-4  rounded-lg invert-[48%] sepia-[79%] saturate-[2476%] hue-rotate-[328deg]" />
                   </div>
                 ))}
               </div>
-              <div className="inset-0 flex gap-2 items-center px-4">
+              <div className="inset-0 flex gap-2 items-center px-16">
                 <button 
                   onClick={prevSlide}
                   className="left-4 top-1/2 -translate-y-14 bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-sm transition-colors z-20 group"
@@ -95,7 +91,7 @@ export default function Home() {
 
 
               {/* 4. Bottom Dot Indicators */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="absolute bottom-6 right-0 -translate-x-1/2 flex gap-2 z-20">
                 {slides.map((_, index) => (
                   <button
                     key={index}
@@ -108,8 +104,8 @@ export default function Home() {
               </div>
         </div>
       </section>
-      <section className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl text-[var(--accent)] font-serif font-bold mb-6">Who We Are</h1>
+      <section className="h-screen snap-start flex flex-col items-center justify-center gap-4">
+        <h1 className="text-5xl text-[var(--primary)] font-serif font-bold mb-6">Who We Are</h1>
         <div className="flex flex-col text-white gap-4">
           <p className="text-lg text-[var(--accent)]">  We are who you want us to be or a more descriptive statement</p>
           <span className="flex flex-row gap-6 items-center justify-center mt-16">
