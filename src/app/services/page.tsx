@@ -72,13 +72,13 @@ function ServiceCard({ service } : { service: Service }) {
       <div className=" absolute left-0 top-0 h-1 w-0 bg-[#F5C45E] transition-all duration-500 group-hover:w-full " />
 
       <div className="flex flex-row gap-4 items-baseline">
-      {/* Icon */}
-      <div className=" mb-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E] transition-all duration-500 group-hover:bg-[#F5C45E] group-hover:text-[#102E50] " >
-        <Icon size={24} strokeWidth={1.7} />
-      </div>
+        {/* Icon */}
+        <div className=" mb-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E] transition-all duration-500 group-hover:bg-[#F5C45E] group-hover:text-[#102E50] " >
+          <Icon size={24} strokeWidth={1.7} />
+        </div>
 
-      {/* Title */}
-      <h3 className=" mb-4 font-serif text-xl sm:text-3xl font-semibold text-[#102E50] " > {service.title} </h3>
+        {/* Title */}
+        <h3 className=" mb-4 font-serif text-xl xs:text-3xl font-semibold text-[#102E50] " > {service.title} </h3>
       </div>
 
       {/* Description */}
@@ -125,7 +125,7 @@ export default function Services() {
   };
   return (
     <main className="h-screen overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth scrollbar-none">
-      <section className="min-h-screen snap-start relative flex items-end overflow-hidden bg-[var(--foreground)]/80 px-6 py-32 sm:px-10 lg:px-20 " >
+      <section className="min-h-screen snap-start relative flex items-end overflow-hidden bg-[var(--foreground)]/8 px-6 py-32 sm:px-10 lg:px-20 " >
 
         {/* Decorative circles */}
         <div className=" absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-[var(--primary)]/50 " />
