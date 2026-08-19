@@ -125,11 +125,11 @@ export default function Services() {
   };
   return (
     <main className="h-screen overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth scrollbar-none">
-      <section className="min-h-screen snap-start relative flex items-end overflow-hidden bg-[var(--foreground)]/8 px-6 py-32 sm:px-10 lg:px-20 " >
+      <section className="min-h-screen snap-start relative flex items-end overflow-hidden bg-[var(--foreground)]/80 px-6 py-32 sm:px-10 lg:px-20 " >
 
         {/* Decorative circles */}
-        <div className=" absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-[var(--primary)]/20 " />
-        <div className=" absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full border border-[var(--accent)] " />
+        <div className=" absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-[var(--primary)]/50 " />
+        <div className=" absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full border border-[var(--accent)]/40 " />
         <div className="relative z-10 mx-auto w-full max-w-7xl pt-20">
           <p className=" mb-10 text-md font-semibold uppercase tracking-[0.35em] text-[var(--secondary)] " >
             Franto Insurance Agency

@@ -104,7 +104,7 @@ export default function Home() {
               </div>
         </div>
       </section>
-      <section className="h-screen snap-start flex flex-col items-center justify-center gap-4">
+      <section className="h-screen snap-start flex flex-col items-center justify-center gap-4 bg-[var(--background)]">
         <h1 className="text-5xl text-[var(--primary)] font-serif font-bold mb-6">Who We Are</h1>
         <div className="flex flex-col text-white gap-4">
           <p className="text-lg text-[var(--accent)]">  We are who you want us to be or a more descriptive statement</p>
