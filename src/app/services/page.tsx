@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { LuLandmark, LuTrendingUp, LuCar, LuShieldCheck, LuHeartPulse, LuWalletCards, LuArrowUpRight } from "react-icons/lu";
+import { useState } from "react";
+import BookingForm from "@/components/utility/bookingForm";
 
 interface Service {
   title: string;
@@ -17,6 +19,7 @@ interface ServiceSectionProps {
   services: Service[];
   dark?: boolean;
 }
+
 
 const services = {
   investments: [
@@ -115,6 +118,11 @@ function ServiceSection({ id, eyebrow, title, description, services, dark = fals
 }
 
 export default function Services() {
+  const [formVisible, setFormVisible] = useState(false);
+
+  const handleBookingOpen = () => {
+    setFormVisible(true);
+  };
   return (
     <main className="h-screen overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth scrollbar-none">
       <section className="min-h-screen snap-start relative flex items-end overflow-hidden bg-[var(--foreground)]/8 px-6 py-32 sm:px-10 lg:px-20 " >
@@ -186,11 +194,14 @@ export default function Services() {
           <p className=" mx-auto mt-6 max-w-2xl text-sm sm:text-lg leading-8 text-[#102E50]/70 " >
             Let's build a financial strategy that protects   what you've worked for and creates opportunities   for what comes next.
           </p>
-          <Link href="#booking-form" className=" mt-8 inline-flex rounded-full bg-[#102E50] text-xs px-6 py-3 sm:px-8 sm:py-4 text-white transition-all duration-300 hover:bg-[#BE3D2A] hover:shadow-xl ">
+          <button onClick={handleBookingOpen} className=" mt-8 inline-flex rounded-full bg-[#102E50] text-xs px-6 py-3 sm:px-8 sm:py-4 text-white transition-all duration-300 hover:bg-[#BE3D2A] hover:shadow-xl ">
             Start a Conversation
-          </Link>
+          </button>
         </div>
       </section>
+      
+      {/* =========================       BOOKING FORM MODAL      ========================= */}
+      {formVisible && ( <BookingForm setFormVisible={setFormVisible} /> )}
     </main>
   );
 }

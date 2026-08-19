@@ -14,24 +14,24 @@ function Navbar() {
       name: "Insurance",
       link_to: "#",
       dropdown: [
-        { name: "Insurance", link_to: "/insurance" },
-        { name: "Insurance 1", link_to: "/insurance" },
+        { name: "Insurance", link_to: "/services#insurance" },
+        { name: "Insurance 1", link_to: "/services#insurance" },
       ],
     },
     {
       name: "Investments",
       link_to: "#",
       dropdown: [
-        { name: "Investment", link_to: "/investments" },
-        { name: "Investment 2", link_to: "/investments" },
+        { name: "Investment", link_to: "/services#investments" },
+        { name: "Investment 2", link_to: "/services#investments" },
       ],
     },
     {
       name: "Pension",
       link_to: "#",
       dropdown: [
-        { name: "Pension", link_to: "/pension" },
-        { name: "Pension 1", link_to: "/pension" },
+        { name: "Pension", link_to: "/services#pension" },
+        { name: "Pension 1", link_to: "/services#pension" },
       ],
     },
     {
