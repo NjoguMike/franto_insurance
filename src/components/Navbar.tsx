@@ -56,9 +56,11 @@ function Navbar() {
         <div key={index} className="relative w-full">
           <select key={index} defaultValue=""
             onChange={(e) => {if (e.target.value) { window.location.href = e.target.value }}}
-            className={`w-full appearance-none cursor-pointer bg-transparent font-medium pb-1 pr-8 focus:outline-none ${mobileMenuOpen ? 'p-0 hover:bg-[var(--accent)] hover:text-[var(--background)] py-4 px-6 justify-center pb-4' : 'bg-[var(--background)]'}`}
+            className={`min-w-[130px] appearance-none cursor-pointer bg-transparent font-medium pb-1 px-1 focus:outline-none ${mobileMenuOpen ? ' p-0 hover:bg-[var(--accent)] hover:text-[var(--background)] py-4 px-6 justify-center pb-4' : 'bg-[var(--background)]'}`}
           >
-
+            <option key={1} value='#insurance' hidden className={`w-full ${mobileMenuOpen ? ' bg-[var(--background)] text-[var(--primary)] hover:bg-[var(--primary)]' : ' bg-[var(--background)] text-[var(--accent)]'}`}  >
+            {item.name}
+            </option>
             {item.dropdown.map((opt, idx) => (
               <option key={idx} value={opt.link_to} className={`${mobileMenuOpen ? 'bg-[var(--background)] text-[var(--primary)] hover:bg-[var(--primary)]' : 'bg-[var(--background)] text-[var(--accent)]'}`}  >
                 {opt.name}
@@ -95,7 +97,7 @@ function Navbar() {
             <img src="/header_logo.png" alt="Franto Insurance" className=" mt-2 w-6 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
           </Link>
           {/* =========================              DESKTOP NAVIGATION          ========================= */}
-          <nav className=" hidden sm:flex flex-row items-center gap-6 rounded-full bg-[#102E50] px-8 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >
+          <nav className=" hidden sm:flex flex-row items-center gap-4 rounded-full bg-[#102E50] px-6 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >
             {NavItem}
           </nav>
 
