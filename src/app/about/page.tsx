@@ -63,7 +63,7 @@ function About() {
               </div>
 
               <h2 className="font-serif text-2xl font-bold sm:text-3xl"> Empowering confident decisions. </h2>
-              <p className="mt-5 leading-6 text-white/75 text-sm sm:text-md">
+              <p className="mt-5 leading-6 text-white/75 text-xs sm:text-md">
                 Our mission is to empower individuals and businesses with trusted insurance, investment, and retirement solutions that support lasting financial confidence.
               </p>
             </div>
@@ -77,7 +77,7 @@ function About() {
               </div>
 
               <h2 className="font-serif text-2xl font-bold sm:text-3xl"> Endless financial possibilities. </h2>
-              <p className="mt-5 leading-6 text-blue/75 text-sm sm:text-md">
+              <p className="mt-5 leading-6 text-blue/75 text-xs sm:text-md">
                 We envision a future where more people have access to the knowledge, protection, and financial opportunities needed to achieve their ambitions.
               </p>
             </div>
@@ -156,11 +156,11 @@ function About() {
 
       <section id="contact" className=" min-h-screen snap-start flex items-center justify-center bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20 ">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Let's Start a Conversation </p>
+          <p className="mb-12 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Let's Start a Conversation </p>
           <h2 className="font-serif text-3xl font-bold leading-tight text-[var(--secondary)] md:text-6xl ">
             Your future deserves <span className="block"> thoughtful planning. </span>
           </h2>
-          <p className="mx-auto mt-12 max-w-lg md:max-w-2xl text-lg leading-8 text-[var(--primary)]/75">
+          <p className="mx-auto mt-12 max-w-lg md:max-w-2xl text-md leading-8 text-[var(--primary)]/75">
             Whether you're looking for protection, investment opportunities, or retirement planning, our team is ready to help you explore your possibilities.
           </p>
 
