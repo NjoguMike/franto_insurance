@@ -1,6 +1,6 @@
 // import { useParams } from 'next/navigation';
 import React from 'react'
-import { FaX } from 'react-icons/fa6'
+import { LuX } from 'react-icons/lu'
 
 function BookingForm({ setFormVisible }: { setFormVisible: React.Dispatch<React.SetStateAction<boolean>> }) {
   
@@ -8,9 +8,9 @@ function BookingForm({ setFormVisible }: { setFormVisible: React.Dispatch<React.
     <div id="booking-form" className={`fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm`}>
       <div className="relative w-full max-w-2xl rounded-2xl bg-white py-16 px-12 shadow-2xl animate-in fade-in duration-300">
         <div className="relative flex flex-row items-center justify-between mb-18">
-          <h1 className="text-4xl text-[var(--primary)] font-serif font-bold">Book an Appointment</h1>
-          <FaX  
-            className="relative cursor-pointer text-xl text-[#102E50] transition hover:bg-[var(--secondary)] hover:text-white hover:rounded-full" 
+          <h1 className="text-3xl text-[var(--primary)] font-serif font-bold">Book an Appointment</h1>
+          <LuX  
+            className="absolute right-0 top-2 flex h-8 w-8 items-center justify-center rounded-full text-[#102E50]/60 transition-colors hover:bg-[#102E50]/10 hover:text-[var(--secondary)]" 
             size={24} 
             onClick = {() => setFormVisible(false)}
           />

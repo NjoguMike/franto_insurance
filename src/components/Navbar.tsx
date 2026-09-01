@@ -11,28 +11,16 @@ function Navbar() {
 
   const NavItems = [
     {
-      name: "Insurance",
-      link_to: "#",
-      dropdown: [
-        { name: "Insurance", link_to: "/services#insurance" },
-        { name: "Insurance 1", link_to: "/services#insurance" },
-      ],
+      name: "Home",
+      link_to: "/",
     },
     {
-      name: "Investments",
-      link_to: "#",
-      dropdown: [
-        { name: "Investment", link_to: "/services#investments" },
-        { name: "Investment 2", link_to: "/services#investments" },
-      ],
+      name: "Services",
+      link_to: "/services",
     },
     {
-      name: "Pension",
-      link_to: "#",
-      dropdown: [
-        { name: "Pension", link_to: "/services#pension" },
-        { name: "Pension 1", link_to: "/services#pension" },
-      ],
+      name: "About Us",
+      link_to: "/about",
     },
     {
       name: "Book Now",
@@ -49,42 +37,24 @@ function Navbar() {
   const handleNavigation = () => { setMobileMenuOpen(false)};
 
   const NavItem = NavItems.map((item, index) => {
-    // =========================   DROP DOWN ITEMS  =========================
 
-    if (item.dropdown) {
-      return (
-        <div key={index} className="relative w-full">
-          <select key={index} defaultValue=""
-            onChange={(e) => {if (e.target.value) { window.location.href = e.target.value }}}
-            className={`min-w-[130px] appearance-none cursor-pointer bg-transparent font-medium pb-1 px-1 focus:outline-none ${mobileMenuOpen ? ' p-0 hover:bg-[var(--accent)] hover:text-[var(--background)] py-4 px-6 justify-center pb-4' : 'bg-[var(--background)]'}`}
-          >
-            <option key={1} value='#insurance' hidden className={`w-full ${mobileMenuOpen ? ' bg-[var(--background)] text-[var(--primary)] hover:bg-[var(--primary)]' : ' bg-[var(--background)] text-[var(--accent)]'}`}  >
-            {item.name}
-            </option>
-            {item.dropdown.map((opt, idx) => (
-              <option key={idx} value={opt.link_to} className={`${mobileMenuOpen ? 'bg-[var(--background)] text-[var(--primary)] hover:bg-[var(--primary)]' : 'bg-[var(--background)] text-[var(--accent)]'}`}  >
-                {opt.name}
-              </option>
-            ))}
-          </select>
-          <LuChevronDown size={15} className={` pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 ${mobileMenuOpen ? 'text-[var(--primary)]' : 'text-[var(--background)]'}`} />
-        </div>
-
-      );
-    }
-
-    // =========================   BOOK NOW   =========================
     if (item.name === "Book Now") {
       return (
         <button key={index} type="button" onClick={handleBookingOpen}
-          className={`${mobileMenuOpen ? ' py-3 bg-[var(--primary)] text-[var(--background)]' : 'pb-1'} w-full relative inline-block cursor-pointer font-medium text-[var(--accent)] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-center after:scale-x-0 after:bg-[#F5C45E] after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 hover:text-[#F5C45E]`}
+          className={`${mobileMenuOpen ? ' py-3 bg-[var(--primary)] text-[var(--background)]' : 'p-1 pl-3 min-w-max'} w-full relative inline-block cursor-pointer font-medium text-[var(--accent)] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-center after:scale-x-0 after:bg-[#F5C45E] after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-80 hover:text-[#F5C45E]`}
         >
           {item.name}
         </button>
       );
     }
 
-    return null;
+    return (
+        <Link key={index} href={item.link_to} type="button"
+          className={`${mobileMenuOpen ? ' py-3 text-center bg-[var(--primary)] text-[var(--background)]' : 'p-1 px-2 min-w-max'} w-full relative cursor-pointer font-medium text-[var(--background)] hover:text-[#F5C45E]`}
+        >
+          {item.name}
+        </Link>
+      );;
   });
 
   return (
@@ -97,7 +67,7 @@ function Navbar() {
             <img src="/header_logo.png" alt="Franto Insurance" className=" mt-2 w-6 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
           </Link>
           {/* =========================              DESKTOP NAVIGATION          ========================= */}
-          <nav className=" hidden sm:flex flex-row items-center gap-4 rounded-full bg-[#102E50] px-6 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >
+          <nav className="min-w-100 hidden sm:flex flex-row items-center gap-2 rounded-full bg-[#102E50] px-10 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >
             {NavItem}
           </nav>
 
@@ -114,8 +84,8 @@ function Navbar() {
         </div>
 
         {/* =========================        MOBILE NAVIGATION        ========================= */}
-        <div className={` absolute left-0 top-full w-full overflow-hidden bg-[var(--background)] backdrop-blur-md shadow-lg sm:hidden transition-all duration-300 ease-in-out ${ mobileMenuOpen ? "block" : "hidden" }`}>
-          <nav className=" flex flex-col items-center pb-8 text-[var(--primary)] " >
+        <div className={` absolute left-0 top-full w-full overflow-hidden bg-[var(--background)] backdrop-blur-md shadow-lg sm:hidden transition-all duration-300 ease-in-out border-t ${ mobileMenuOpen ? "block" : "hidden" }`}>
+          <nav className=" flex flex-col items-center text-[var(--primary)] " >
             {NavItem}
           </nav>
         </div>

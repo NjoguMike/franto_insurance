@@ -21,7 +21,7 @@ function Footer() {
       <div className='flex flex-row items-start gap-6 mt-6 sm:mt-0 sm:px-2 sm:justify-end'>
         <div>
           <h2 className='text-xl font-serif font-semibold py-2 tracking-wider'>Services</h2>
-          <div className='px-2 text-white font-sans text-sm leading-8'>
+          <div className='px-2 text-white text-sm leading-8 cursor-pointer'>
             <p>Insurance</p>
             <p>Investments</p>
             <p>Pension</p>
@@ -29,11 +29,10 @@ function Footer() {
         </div>
         <div>
           <h2 className='text-xl font-serif font-semibold py-2 tracking-wider'>Address</h2>
-          <div className='px-2 text-white font-sans text-sm leading-8'>
-            <p>Contact</p>
-            <p>Email Support</p>
-            <p className='leading-relaxed'>Operating Hours :
-              <span className='block px-2 text-xs'>8:00 AM - 5:00 PM</span>
+          <div className='px-2 text-white text-sm leading-8'>
+            <p>Contact : 0700 123 456</p>
+            <p>Email Support : info@frantoinsurance.com</p>
+            <p>Operating Hours : 8:00 AM - 5:00 PM
             </p>
           </div>
         </div>

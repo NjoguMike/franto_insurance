@@ -86,8 +86,8 @@ function About() {
       </section>
 
       {/* =====================================================     VALUES      ===================================================== */}
-      <section id="values" className=" min-h-screen snap-start bg-[var(--secondary)]/20 px-6 py-24 sm:px-10 lg:px-20 ">
-        <div className="mx-auto max-w-7xl">
+      <section id="values" className=" min-h-screen snap-start bg-[var(--secondary)]/20 px-6 py-24 sm:px-10 lg:px-20 flex items-center ">
+        <div className="mx-auto max-w-7xl flex flex-col lg:gap-18">
           <div className="max-w-3xl">
             <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> What Guides Us </p>
             <h2 className="font-serif text-3xl font-bold text-[var(--primary)] sm:text-5xl"> Values that define how we serve. </h2>
@@ -96,7 +96,7 @@ function About() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => {
               const Icon = value.icon;
 
@@ -116,11 +116,11 @@ function About() {
         </div>
       </section>
 
-      <section id="team" className=" min-h-screen snap-start bg-[var(--primary)] px-6 py-24 sm:px-10 lg:px-20 text-white ">
-        <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
+      <section id="team" className=" min-h-screen snap-start bg-[var(--primary)] px-6 py-24 sm:px-10 lg:px-20 text-white flex items-center">
+        <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2">
           <div>
             <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> Our Team </p>
-            <h2 className="font-serif text-3xl font-bold leading-tight sm:text-5xl"> Expertise built around your future. </h2>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight"> Expertise built around your future. </h2>
             <p className="mt-7 max-w-lg text-md md:text-lg leading-8 text-white/70">
               Our team brings together experience, insight, and a genuine commitment to helping our clients make informed financial decisions.
             </p>
@@ -138,10 +138,10 @@ function About() {
           </div>
 
           {/* Visual content */}
-          <div className="relative">
+          <div className="relative h-1/4">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm sm:p-12">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> The Franto Approach </p>
-              <blockquote className="mt-8 font-serif text-xl leading-relaxed md:text-4xl">
+              <blockquote className="mt-8 font-serif text-xl leading-relaxed sm:text-3xl md:text-4xl">
                 "Your goals deserve more than a standard solution."
               </blockquote>
               <div className="mt-10 h-px w-full bg-white/10" />
@@ -157,26 +157,29 @@ function About() {
       <section id="contact" className=" min-h-screen snap-start flex items-center justify-center bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20 ">
         <div className="mx-auto max-w-4xl text-center">
           <p className="mb-12 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Let's Start a Conversation </p>
-          <h2 className="font-serif text-3xl font-bold leading-tight text-[var(--secondary)] md:text-6xl ">
-            Your future deserves <span className="block"> thoughtful planning. </span>
+          <h2 className="font-serif text-2xl font-bold leading-tight text-[var(--secondary)] lg:text-5xl ">
+            Your future deserves <span className="block text-3xl lg:text-6xl "> Thoughtful planning. </span>
           </h2>
-          <p className="mx-auto mt-12 max-w-lg md:max-w-2xl text-md leading-8 text-[var(--primary)]/75">
+          <p className="mx-auto mt-12 max-w-lg lg:max-w-3xl lg:text-xl leading-8 text-[var(--primary)]/75">
             Whether you're looking for protection, investment opportunities, or retirement planning, our team is ready to help you explore your possibilities.
           </p>
 
-          <div className="mt-12 flex flex-col justify-center gap-4 xs:flex-row md:flex-row">
-            <Link
-              href="mailto:info@detche.com"
-              className=" inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--accent)] hover:shadow-xl ">
-              Email Us
-              <LuArrowRight size={18} />
+          <div className="mt-12 flex flex-row justify-center gap-4 ">
+            <Link  href="mailto:info@detche.com"  className=" group mt-6 flex h-[42px] w-[115px] text-sm items-center justify-between overflow-hidden rounded-full border-1 border-transparent bg-[var(--primary)] px-7 py-2 font-medium text-[var(--background)] no-underline transition-all duration-500 ease-out hover:w-[180px] hover:border-[var(--primary)] hover:bg-transparent hover:font-semibold hover:text-[var(--primary)] ">
+              <span className="whitespace-nowrap">
+                Email Us
+              </span>
+              <span className=" hidden items-center justify-center text-[var(--accent)] transition-all duration-300 group-hover:flex " >
+                <LuArrowRight size={18} />
+              </span>
             </Link>
 
             <Link
               href="tel:+1234567890"
-              className=" inline-flex items-center justify-center rounded-full border border-[var(--primary)]/30 px-8 py-4 font-semibold text-[var(--primary)] transition-all duration-300 hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white ">
+              className=" mt-6 flex h-[42px] w-[135px] inline-flex text-sm  items-center justify-center rounded-full border-2 border-[var(--primary)]/30 px-6 py-3 font-semibold text-[var(--primary)] transition-all duration-300 hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white ">
               Call Us
             </Link>
+
           </div>
         </div>
       </section>

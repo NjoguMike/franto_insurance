@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  LuLandmark,
-  LuTrendingUp,
-  LuCar,
-  LuHeartPulse,
-  LuWalletCards,
-  LuArrowUpRight,
-  LuPlus,
-  LuX,
-} from "react-icons/lu";
+import { LuLandmark, LuTrendingUp, LuCar, LuHeartPulse, LuWalletCards, LuArrowUpRight, LuPlus, LuX } from "react-icons/lu";
 import { Fragment, useState } from "react";
 import BookingForm from "@/components/utility/bookingForm";
 
@@ -265,11 +256,7 @@ function CategoryHeader({ category }: { category: ServiceCategory }) {
   );
 }
 
-function ServiceCard({
-  service,
-  onOpenBooking,
-  onOpenDetails,
-}: {
+function ServiceCard({ service, onOpenBooking, onOpenDetails }: {
   service: Service;
   onOpenBooking: () => void;
   onOpenDetails: () => void;
@@ -412,13 +399,13 @@ export default function Services() {
     <main className="h-screen overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth scrollbar-none">
       <section className="min-h-screen snap-start relative flex items-center overflow-hidden bg-[var(--foreground)]/8 px-6 sm:px-10 lg:px-20">
         {/* Decorative circles */}
-        <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-[var(--primary)]/50" />
-        <div className="absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full border border-[var(--accent)]/40" />
+        <div className="absolute -right-40 -top-40 h-[400px] w-[400px] lg:h-[600px] lg:w-[600px] rounded-full border border-[var(--primary)]/30" />
+        <div className="absolute -bottom-40 -left-40 h-[300px] w-[300px] lg:h-[700px] lg:w-[700px] rounded-full border border-[var(--accent)]/50" />
         <div className="flex flex-col items-center w-full pt-20">
           <h1 className="max-w-4xl font-serif text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-6xl lg:text-7xl">
             Our Services
           </h1>
-          <p className="mt-20 max-w-3xl text-center text-sm sm:text-lg leading-8 text-[var(--secondary)] sm:text-xl tracking-wider font-sans">
+          <p className="mt-20 max-w-4xl text-center text-sm lg:text-lg leading-8 text-[var(--secondary)] sm:text-xl tracking-wider font-sans">
             From protecting your health and assets to building wealth and planning for retirement, we&apos;re here to help you discover endless financial possibilities.
           </p>
           <h2 className="mt-10 font-serif text-xl sm:text-4xl font-semibold sm:text-5xl text-[#102E50]">
@@ -438,8 +425,7 @@ export default function Services() {
               What We Offer
             </h3>
             <p className="max-w-4xl text-sm sm:text-lg leading-8 text-gray-600 font-sans">
-              Explore investments, insurance, and pension solutions below.
-              Tap a title to start a conversation, or the{" "}
+              Explore investments, insurance, and pension solutions below. Tap a title to start a conversation, or the{" "}
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#102E50]/30 align-middle text-[10px]">
                 +
               </span>{" "}
