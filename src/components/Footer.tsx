@@ -6,7 +6,7 @@ function Footer() {
     <div className='grid  sm:grid-cols-2 bg-[#102E50] text-[#F5C45E] px-10 sm:px-16 py-20 gap-8'>
       <div className='flex flex-col gap-8 justify-between '>
         <div className='flex items-start gap-4'>
-          <img src={"/header_logo.png"} alt="Franto Insurance" className="block w-14 h-14 shrink-0 object-contain" />
+          <img src={"/header_logo.png"} alt="Franto Insurance" className="block w-14 h-14 shrink-0 object-contain backdrop-blur-lg" />
           <div className='min-w-[200px] flex flex-col pr-4'>
             <h2 className='text-xl xs:text-2xl font-serif tracking-wide font-bold leading-6 text-white'> Franto Insurance Agency </h2>
             <p className='mt-2 py-2 text-lg font-cursive tracking-widest text-[var(--accent)]'> endless financial possibilities</p>

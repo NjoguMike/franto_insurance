@@ -8,7 +8,9 @@
   --foreground: #171717;;
   --primary: #102E50;
   --accent: #F5C45E;
-  --secondary: #BE3D2A;
+  --secondary: #16457a;
+  /* --secondary: #BE3D2A; */
+
 }
 
 @theme inline {

@@ -39,15 +39,15 @@ function About() {
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-8rem)] max-w-lg sm:max-w-7xl flex-col justify-center">
           <div className="max-w-4xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--primary)]"> Franto Insurance Agency </p>
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Franto Insurance Agency </p>
             <h1 className="font-serif text-4xl font-bold leading-tight text-[var(--primary)] sm:text-6xl lg:text-7xl">
               Building confidence for
-              <span className="block text-[var(--secondary)]">
+              <span className="block text-[var(--accent)]">
                 every financial future.
               </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--primary)]/80 sm:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--secondary)] sm:text-lg">
               At Franto Insurance Agency, we believe financial protection is more than preparing for uncertainty. It is about creating the confidence to move forward, pursue opportunities, and build a secure future.
             </p>
           </div>
@@ -59,7 +59,7 @@ function About() {
                 <div className="mb-6 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--primary)]">
                   <LuTarget size={24} />
                 </div>
-                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--secondary)]"> Our Mission </p> 
+                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--accent)]"> Our Mission </p> 
               </div>
 
               <h2 className="font-serif text-2xl font-bold sm:text-3xl"> Empowering confident decisions. </h2>
@@ -73,10 +73,10 @@ function About() {
                 <div className="mb-6 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--accent)]">
                 <LuHeartHandshake size={28} />
                 </div>
-                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--secondary)]"> Our Vision </p> 
+                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--primary)]"> Our Vision </p> 
               </div>
 
-              <h2 className="font-serif text-2xl font-bold sm:text-3xl"> Endless financial possibilities. </h2>
+              <h2 className="font-serif text-2xl font-bold sm:text-3xl text-[var(--secondary)]"> Endless financial possibilities. </h2>
               <p className="mt-5 leading-6 text-blue/75 text-xs sm:text-md">
                 We envision a future where more people have access to the knowledge, protection, and financial opportunities needed to achieve their ambitions.
               </p>
@@ -89,7 +89,7 @@ function About() {
       <section id="values" className=" min-h-screen snap-start bg-[var(--secondary)]/20 px-6 py-24 sm:px-10 lg:px-20 flex items-center ">
         <div className="mx-auto max-w-7xl flex flex-col lg:gap-18">
           <div className="max-w-3xl">
-            <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> What Guides Us </p>
+            <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> What Guides Us </p>
             <h2 className="font-serif text-3xl font-bold text-[var(--primary)] sm:text-5xl"> Values that define how we serve. </h2>
             <p className="mt-6 max-w-sm sm:max-w-7xl text-md sm:text-xl leading-8 text-[var(--primary)]/70">
               Our values shape every relationship, recommendation, and financial solution we provide.
@@ -119,7 +119,7 @@ function About() {
       <section id="team" className=" min-h-screen snap-start bg-[var(--primary)] px-6 py-24 sm:px-10 lg:px-20 text-white flex items-center">
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2">
           <div>
-            <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> Our Team </p>
+            <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Our Team </p>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight"> Expertise built around your future. </h2>
             <p className="mt-7 max-w-lg text-md md:text-lg leading-8 text-white/70">
               Our team brings together experience, insight, and a genuine commitment to helping our clients make informed financial decisions.
@@ -140,7 +140,7 @@ function About() {
           {/* Visual content */}
           <div className="relative h-1/4">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm sm:p-12">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]"> The Franto Approach </p>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> The Franto Approach </p>
               <blockquote className="mt-8 font-serif text-xl leading-relaxed sm:text-3xl md:text-4xl">
                 "Your goals deserve more than a standard solution."
               </blockquote>
@@ -157,8 +157,8 @@ function About() {
       <section id="contact" className=" min-h-screen snap-start flex items-center justify-center bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20 ">
         <div className="mx-auto max-w-4xl text-center">
           <p className="mb-12 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Let's Start a Conversation </p>
-          <h2 className="font-serif text-2xl font-bold leading-tight text-[var(--secondary)] lg:text-5xl ">
-            Your future deserves <span className="block text-3xl lg:text-6xl "> Thoughtful planning. </span>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-[var(--secondary)] lg:text-5xl ">
+            Your future deserves <span className="block text-4xl lg:text-6xl text-[var(--accent)]"> Thoughtful planning. </span>
           </h2>
           <p className="mx-auto mt-12 max-w-lg lg:max-w-3xl lg:text-xl leading-8 text-[var(--primary)]/75">
             Whether you're looking for protection, investment opportunities, or retirement planning, our team is ready to help you explore your possibilities.
@@ -176,7 +176,7 @@ function About() {
 
             <Link
               href="tel:+1234567890"
-              className=" mt-6 flex h-[42px] w-[135px] inline-flex text-sm  items-center justify-center rounded-full border-2 border-[var(--primary)]/30 px-6 py-3 font-semibold text-[var(--primary)] transition-all duration-300 hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white ">
+              className=" mt-6 flex h-[42px] w-[135px] inline-flex text-sm  items-center justify-center rounded-full border-1 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--primary)] transition-all duration-300 hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white ">
               Call Us
             </Link>
 

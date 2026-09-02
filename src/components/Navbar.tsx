@@ -64,7 +64,7 @@ function Navbar() {
         <div className="flex w-full items-center justify-between">
           {/* =========================         LOGO          ========================= */}
           <Link href="/" onClick={handleNavigation} className="flex items-center gap-2"  >
-            <img src="/header_logo.png" alt="Franto Insurance" className=" mt-2 w-6 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
+            <img src="/franto.png" alt="Franto Insurance" className=" mt-2 w-6 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
           </Link>
           {/* =========================              DESKTOP NAVIGATION          ========================= */}
           <nav className="min-w-100 hidden sm:flex flex-row items-center gap-2 rounded-full bg-[#102E50] px-10 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >

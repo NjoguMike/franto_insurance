@@ -243,7 +243,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
 function CategoryHeader({ category }: { category: ServiceCategory }) {
   return (
     <div className="pb-4">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#BE3D2A]">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">
         {category.eyebrow}
       </p>
       <h3 className="mb-3 font-serif text-xl font-semibold text-[#102E50]">
@@ -274,7 +274,7 @@ function ServiceCard({ service, onOpenBooking, onOpenDetails }: {
         onClick={onOpenDetails}
         aria-label={`More details about ${service.title}`}
         title="More details"
-        className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-[#102E50]/15 text-[#102E50] transition-colors duration-300 hover:border-[#BE3D2A] hover:text-[#BE3D2A]"
+        className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-[#102E50]/15 text-[#102E50] transition-colors duration-300 hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
       >
         <LuPlus size={16} />
       </button>
@@ -289,14 +289,14 @@ function ServiceCard({ service, onOpenBooking, onOpenDetails }: {
         <button
           type="button"
           onClick={onOpenBooking}
-          className="block w-full text-left line-clamp-2 transition-colors duration-300 hover:text-[#BE3D2A]"
+          className="block w-full text-left line-clamp-2 transition-colors duration-300 hover:text-[var(--secondary)]"
         >
           {service.title}
         </button>
       </h3>
 
       {/* Description, clamped to 3 lines so card bodies don't balloon in height */}
-      <p className="mb-5 leading-6 text-gray-600 font-sans text-[13px] line-clamp-3">
+      <p className="mb-5 leading-6 text-[var(--secondary)] font-sans text-[13px] line-clamp-3">
         {service.description}
       </p>
 
@@ -305,7 +305,7 @@ function ServiceCard({ service, onOpenBooking, onOpenDetails }: {
       <button
         type="button"
         onClick={onOpenBooking}
-        className="mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#102E50] transition-colors duration-300 group-hover:text-[#BE3D2A]"
+        className="mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--accent)] transition-colors duration-300 group-hover:text-[var(--secondary)]"
       >
         Learn More
         <LuArrowUpRight
@@ -337,20 +337,21 @@ function ServiceDetailOverlay({ service, onClose, onOpenBooking }: {
           type="button"
           onClick={onClose}
           aria-label="Close details"
-          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[#102E50]/60 transition-colors hover:bg-[#102E50]/5 hover:text-[#102E50]"
+          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[var(--secondary)] transition-colors hover:bg-[var(--secondary)]/10 hover:text-[#102E50]"
         >
           <LuX size={18} />
         </button>
+        <div className="mb-2 flex flex-row items-center gap-4">
+          <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E]">
+            <Icon size={24} strokeWidth={1.7} />
+          </div>
 
-        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E]">
-          <Icon size={24} strokeWidth={1.7} />
+          <h3 className="mb-3 font-serif max-w-xs text-xl font-semibold text-[var(--accent)]">
+            {service.title}
+          </h3>
         </div>
 
-        <h3 className="mb-3 font-serif text-2xl font-semibold text-[#102E50]">
-          {service.title}
-        </h3>
-
-        <p className="mb-5 text-sm leading-7 text-gray-600 font-sans">
+        <p className="mb-5 text-sm leading-7 text-[var(--secondary)] font-sans">
           {service.details}
         </p>
 
@@ -358,9 +359,9 @@ function ServiceDetailOverlay({ service, onClose, onOpenBooking }: {
           {service.highlights.map((point, i) => (
             <li
               key={i}
-              className="flex items-start gap-2 text-sm text-gray-700 font-sans"
+              className="flex items-start gap-2 text-sm text-[var(--primary)] font-sans"
             >
-              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#BE3D2A]" />
+              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--secondary)]" />
               {point}
             </li>
           ))}
@@ -369,7 +370,7 @@ function ServiceDetailOverlay({ service, onClose, onOpenBooking }: {
         <button
           type="button"
           onClick={onOpenBooking}
-          className="inline-flex w-full items-center justify-center rounded-full bg-[#102E50] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#BE3D2A]"
+          className="inline-flex w-full items-center justify-center rounded-full bg-[#102E50] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[var(--secondary)]"
         >
           Start a Conversation
         </button>
@@ -405,10 +406,10 @@ export default function Services() {
           <h1 className="max-w-4xl font-serif text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-6xl lg:text-7xl">
             Our Services
           </h1>
-          <p className="mt-20 max-w-4xl text-center text-sm lg:text-lg leading-8 text-[var(--secondary)] sm:text-xl tracking-wider font-sans">
+          <p className="mt-20 max-w-2xl text-center text-sm lg:text-lg leading-8 text-[var(--secondary)] sm:text-xl tracking-wider font-sans">
             From protecting your health and assets to building wealth and planning for retirement, we&apos;re here to help you discover endless financial possibilities.
           </p>
-          <h2 className="mt-10 font-serif text-xl sm:text-4xl font-semibold sm:text-5xl text-[#102E50]">
+          <h2 className="mt-10 text-center font-serif text-xl sm:text-4xl font-semibold sm:text-4xl text-[var(--accent)]">
             Every stage of your financial journey, covered.
           </h2>
         </div>
@@ -421,7 +422,7 @@ export default function Services() {
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 max-w-3xl">
-            <h3 className="mb-4 font-bold uppercase tracking-[0.3em] text-[#BE3D2A]">
+            <h3 className="mb-4 font-bold uppercase tracking-[0.3em] text-[var(--accent)]">
               What We Offer
             </h3>
             <p className="max-w-4xl text-sm sm:text-lg leading-8 text-gray-600 font-sans">
@@ -435,11 +436,11 @@ export default function Services() {
 
           {/* Individual / Corporate toggle */}
           <div className="mb-14 flex justify-center">
-            <div className="flex rounded-full bg-[#102E50]/10">
+            <div className="flex rounded-full bg-[var(--secondary)]/20">
               <button
                 type="button"
                 onClick={() => changeTab("individual")}
-                className={`rounded-full px-7 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${ active === "individual" ? "bg-[#102E50] text-white shadow-lg" : "text-[#102E50] hover:text-[#BE3D2A]" }`}
+                className={`rounded-full px-7 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${ active === "individual" ? "bg-[var(--primary)] text-white shadow-lg" : "text-[var(--secondary)] hover:text-[var(--secondary)]" }`}
               >
                 Individual
               </button>
@@ -447,7 +448,7 @@ export default function Services() {
               <button
                 type="button"
                 onClick={() => changeTab("corporate")}
-                className={`rounded-full px-7 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${ active === "corporate" ? "bg-[#102E50] text-white shadow-lg" : "text-[#102E50] hover:text-[#BE3D2A]" }`}
+                className={`rounded-full px-7 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${ active === "corporate" ? "bg-[#102E50] text-white shadow-lg" : "text-[#102E50] hover:text-[var(--secondary)]" }`}
               >
                 Corporate
               </button>
@@ -488,11 +489,11 @@ export default function Services() {
         className="snap-start relative overflow-hidden bg-[#F5C45E] px-6 py-24 sm:px-10 lg:px-20"
       >
         <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--secondary)]">
+          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--background)]">
             Your Future Starts Today
           </p>
 
-          <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#102E50] sm:text-5xl">
+          <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[var(--secondary)] sm:text-5xl">
             Endless Financial Possibilities.
           </h2>
 
@@ -503,7 +504,7 @@ export default function Services() {
           </p>
           <button
             onClick={handleBookingOpen}
-            className="mt-8 inline-flex rounded-full bg-[#102E50] text-xs px-6 py-3 sm:px-8 sm:py-4 text-white transition-all duration-300 hover:bg-[#BE3D2A] hover:shadow-xl"
+            className="mt-8 inline-flex rounded-full bg-[#102E50] text-xs px-6 py-3 sm:px-8 sm:py-4 text-white transition-all duration-300 hover:bg-[var(--secondary)] hover:shadow-xl"
           >
             Start a Conversation
           </button>

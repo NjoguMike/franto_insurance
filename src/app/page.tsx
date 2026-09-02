@@ -46,18 +46,18 @@ export default function Home() {
       >
         <div className='h-screen bg-black/30 w-full px-6 py-32 sm:px-10 lg:px-20'>
           <div className="h-screen relative z-10 mx-auto w-full max-w-7xl pt-10 sm:pt-30">
-            <p className=" mb-5 text-sm sm:text-md font-semibold uppercase tracking-[0.3em] text-[var(--secondary)] " >
+            <p className=" mb-5 text-sm sm:text-md font-semibold uppercase tracking-[0.3em] text-[var(--background)] " >
               Franto Insurance Agency
             </p>
 
             <h1 className=" max-w-4xl font-serif text-3xl sm:text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-6xl lg:text-7xl " >
               Protect what matters.
-              <span className="block text-4xl sm:text-5xl text-[var(--primary)]"> Build what matters. </span>
+              <span className="block text-4xl sm:text-5xl text-[var(--secondary)]"> Build what matters. </span>
             </h1>
-            <p className=" mt-18 max-w-4xl text-sm sm:text-lg leading-8 text-[var(--background)] sm:text-xl tracking-wider font-sans" >
+            <p className=" mt-12 max-w-4xl text-sm sm:text-lg leading-8 text-[var(--background)] sm:text-xl tracking-wider font-sans" >
               From protecting your health and assets to building wealth and planning for retirement, we're here to help you discover endless financial possibilities.
             </p>
-            <div className="mt-20 flex flex-wrap gap-4">
+            <div className="mt-14 flex flex-wrap gap-4">
               <Link href="/services" className=" text-sm rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-[var(--background)] transition-all duration-300 hover:bg-[var(--secondary)] shadow-lg backdrop-blur-md">
                 Explore Services
               </Link>
@@ -114,12 +114,12 @@ export default function Home() {
         </div>
       </section>
       <section className="h-screen snap-start flex flex-col items-center justify-center gap-4 bg-[var(--background)]">
-        <h1 className="text-3xl lg:text-5xl text-[var(--primary)] font-serif font-bold mb-6">Who Are We</h1>
+        <h1 className="text-3xl lg:text-5xl text-[var(--accent)] font-serif font-bold mb-6">Who Are We</h1>
         <div className="flex flex-col text-white gap-4">
           <p className="text-md lg:text-lg text-[var(--primary)]"> We are who you want us to be or a more descriptive statement</p>
           <span className="flex flex-row gap-6 items-center justify-center mt-16">
-            <Link href={'/about'} className="bg-[var(--secondary)] px-6 py-3 rounded-full text-sm hover:bg-[var(--secondary)]/80">About Us</Link>
-            <Link href={'/services'} className="bg-[var(--accent)] px-6 py-3 rounded-full text-sm hover:bg-[var(--accent)]/80">Our Services</Link>
+            <Link href={'/about'} className="bg-[var(--secondary)] px-6 py-3 rounded-full text-sm hover:bg-[var(--primary)]">About Us</Link>
+            <Link href={'/services'} className="bg-[var(--accent)] px-6 py-3 rounded-full text-sm hover:-translate-y-1/8">Our Services</Link>
           </span>
         </div>
       </section>
