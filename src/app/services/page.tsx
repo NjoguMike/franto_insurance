@@ -7,8 +7,6 @@ import {
   LuHeartPulse,
   LuWalletCards,
   LuArrowUpRight,
-  LuPlus,
-  LuX,
   LuBadgeDollarSign,
   LuBriefcaseBusiness,
   LuBuilding2,
@@ -27,7 +25,7 @@ import {
   LuUsers,
 } from "react-icons/lu";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import BookingForm from "@/components/utility/bookingForm";
 
 
@@ -53,27 +51,12 @@ interface ServiceCategory {
 
 type Audience = "individual" | "corporate";
 
-type ServiceTab =
-  | "Medical"
-  | "Life"
-  | "General Insurance"
-  | "Investments"
-  | "Pension"
-  | "Employee Benefits"
-  | "Commercial Assets"
-  | "Liability & Specialty"
-  | "Corporate Financial";
-
 
 // ============================================================
 // SERVICE DATA
 // ============================================================
 
 const serviceData: Record<Audience, ServiceCategory[]> = {
-  // ==========================================================
-  // INDIVIDUAL
-  // ==========================================================
-
   individual: [
     {
       id: "medical",
@@ -81,7 +64,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Healthcare protection for you and your family.",
       description:
         "Access dependable medical insurance solutions designed to protect you and your loved ones from the financial burden of unexpected healthcare costs.",
-
       services: [
         {
           title: "Individual & Family Medical",
@@ -105,7 +87,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Protect the people and plans that matter most.",
       description:
         "Life insurance gives your loved ones financial protection while helping you plan confidently for major milestones and long-term obligations.",
-
       services: [
         {
           title: "Term Life Insurance",
@@ -120,7 +101,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuShieldCheck,
         },
-
         {
           title: "Whole Life & Endowment",
           description:
@@ -134,7 +114,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuUmbrella,
         },
-
         {
           title: "Education Savings Plan",
           description:
@@ -148,7 +127,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuGraduationCap,
         },
-
         {
           title: "Credit Life Protection",
           description:
@@ -171,7 +149,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Protection for the assets and experiences that matter.",
       description:
         "From your vehicle and home to personal accidents and travel, our general insurance solutions help you manage life's unexpected risks.",
-
       services: [
         {
           title: "Private Motor Insurance",
@@ -186,7 +163,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuCar,
         },
-
         {
           title: "Home Insurance",
           description:
@@ -200,7 +176,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuHouse,
         },
-
         {
           title: "Personal Accident Insurance",
           description:
@@ -214,7 +189,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuShieldCheck,
         },
-
         {
           title: "Travel Insurance",
           description:
@@ -237,7 +211,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Make your money work for your future.",
       description:
         "Whether you're building wealth, growing your capital, or planning for significant future goals, our investment solutions are designed around your financial ambitions.",
-
       services: [
         {
           title: "Unit Trust Investments",
@@ -252,7 +225,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuTrendingUp,
         },
-
         {
           title: "Wealth Management",
           description:
@@ -266,7 +238,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuChartNoAxesCombined,
         },
-
         {
           title: "Structured Investment Plans",
           description:
@@ -289,7 +260,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Build today for the life you want tomorrow.",
       description:
         "A secure retirement starts with thoughtful planning. Our pension solutions help you create a financial foundation for greater independence and peace of mind.",
-
       services: [
         {
           title: "Personal Pension Plan",
@@ -304,7 +274,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuWalletCards,
         },
-
         {
           title: "Annuities & Retirement Drawdowns",
           description:
@@ -322,11 +291,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
     },
   ],
 
-
-  // ==========================================================
-  // CORPORATE
-  // ==========================================================
-
   corporate: [
     {
       id: "employee-benefits",
@@ -334,7 +298,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Protect your people and strengthen your benefits package.",
       description:
         "Give your employees meaningful financial and healthcare protection through benefits designed to support wellbeing, retention, and long-term security.",
-
       services: [
         {
           title: "Group Medical Insurance",
@@ -349,7 +312,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuHeartPulse,
         },
-
         {
           title: "Group Life & Last Expense",
           description:
@@ -363,7 +325,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuUsers,
         },
-
         {
           title: "Group Personal Accident & WIBA",
           description:
@@ -377,7 +338,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuShieldCheck,
         },
-
         {
           title: "Corporate Pension Schemes",
           description:
@@ -400,7 +360,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Protect the assets that keep your business moving.",
       description:
         "From buildings and equipment to vehicles and goods in transit, our commercial insurance solutions help protect the physical foundation of your business.",
-
       services: [
         {
           title: "Property All Risks & Fire",
@@ -415,7 +374,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuBuilding2,
         },
-
         {
           title: "Commercial Motor & Fleet Insurance",
           description:
@@ -429,7 +387,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuCar,
         },
-
         {
           title: "Business Interruption",
           description:
@@ -443,7 +400,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuRefreshCw,
         },
-
         {
           title: "Goods in Transit & Marine",
           description:
@@ -466,7 +422,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Prepare your business for risks you can't always predict.",
       description:
         "Specialist risk solutions help protect your business against third-party claims, professional exposures, management liabilities, cyber incidents, and other complex risks.",
-
       services: [
         {
           title: "Public & Product Liability",
@@ -481,7 +436,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuScale,
         },
-
         {
           title: "Professional Indemnity",
           description:
@@ -495,7 +449,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuBriefcaseBusiness,
         },
-
         {
           title: "Directors & Officers Insurance",
           description:
@@ -509,7 +462,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuUserRoundCheck,
         },
-
         {
           title: "Cyber & Crime Risk",
           description:
@@ -532,7 +484,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       title: "Protect your financial strength and plan for what comes next.",
       description:
         "Our corporate financial solutions help businesses protect critical relationships, manage financial obligations, and make better use of their capital.",
-
       services: [
         {
           title: "Key Person Protection",
@@ -547,7 +498,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuUserRoundCog,
         },
-
         {
           title: "Corporate Credit Life",
           description:
@@ -561,7 +511,6 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
           ],
           icon: LuBadgeDollarSign,
         },
-
         {
           title: "Treasury & Wealth Management",
           description:
@@ -582,266 +531,170 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
 
 
 // ============================================================
-// TAB CONFIGURATION
+// SERVICE SELECTOR
 // ============================================================
 
-const individualTabs: {
-  label: ServiceTab;
-  categoryId: string;
-}[] = [
-  {
-    label: "Medical",
-    categoryId: "medical",
-  },
-  {
-    label: "Life",
-    categoryId: "life",
-  },
-  {
-    label: "General Insurance",
-    categoryId: "general-insurance",
-  },
-  {
-    label: "Investments",
-    categoryId: "investments",
-  },
-  {
-    label: "Pension",
-    categoryId: "pension",
-  },
-];
-
-const corporateTabs: {
-  label: ServiceTab;
-  categoryId: string;
-}[] = [
-  {
-    label: "Employee Benefits",
-    categoryId: "employee-benefits",
-  },
-  {
-    label: "Commercial Assets",
-    categoryId: "commercial-assets",
-  },
-  {
-    label: "Liability & Specialty",
-    categoryId: "liability-specialty",
-  },
-  {
-    label: "Corporate Financial",
-    categoryId: "corporate-financial",
-  },
-];
-
-
-// ============================================================
-// CATEGORY HEADER
-// ============================================================
-
-function CategoryHeader({
-  category,
+function ServiceSelector({
+  categories,
+  selectedCategory,
+  selectedService,
+  onCategoryChange,
+  onServiceChange,
 }: {
-  category: ServiceCategory;
+  categories: ServiceCategory[];
+  selectedCategory: string;
+  selectedService: string;
+  onCategoryChange: (id: string) => void;
+  onServiceChange: (title: string) => void;
 }) {
-  return (
-    <div className="pb-2">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">
-        {category.eyebrow}
-      </p>
-
-      <h3 className="mb-3 font-serif text-xl font-semibold text-[#102E50]">
-        {category.title}
-      </h3>
-
-      <p className="font-sans text-sm leading-7 text-gray-600 line-clamp-4">
-        {category.description}
-      </p>
-    </div>
+  const category = categories.find(
+    (item) => item.id === selectedCategory
   );
-}
 
-
-// ============================================================
-// SERVICES TABS
-// ============================================================
-
-function ServicesTabs({
-  tabs,
-  activeTab,
-  onTabClick,
-}: {
-  tabs: {
-    label: ServiceTab;
-    categoryId: string;
-  }[];
-  activeTab: ServiceTab;
-  onTabClick: (tab: ServiceTab) => void;
-}) {
   return (
-    <div className="mb-12 flex flex-wrap justify-center gap-3">
-      {tabs.map((tab) => (
-        <button
-          key={tab.categoryId}
-          type="button"
-          onClick={() => onTabClick(tab.label)}
-          className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ease-in-out ${
-            activeTab === tab.label
-              ? "bg-[var(--primary)] text-white shadow-lg"
-              : "bg-[var(--secondary)]/20 text-[var(--secondary)] hover:bg-[var(--secondary)] hover:text-white"
-          }`}
+    <div className="grid gap-5 md:grid-cols-2">
+
+      {/* Category */}
+      <div>
+        <label
+          htmlFor="service-category"
+          className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]"
         >
-          {tab.label}
-        </button>
-      ))}
-    </div>
-  );
-}
+          Service Category
+        </label>
 
-
-// ============================================================
-// SERVICE CARD
-// ============================================================
-
-function ServiceCard({
-  service,
-  onOpenBooking,
-  onOpenDetails,
-}: {
-  service: Service;
-  onOpenBooking: () => void;
-  onOpenDetails: () => void;
-}) {
-  const Icon = service.icon;
-
-  return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#102E50]/10 bg-white p-6 text-sm shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-      {/* Gold accent */}
-      <div className="absolute left-0 top-0 h-1 w-0 bg-[#F5C45E] transition-all duration-500 group-hover:w-full" />
-
-      {/* Details toggle */}
-      <button
-        type="button"
-        onClick={onOpenDetails}
-        aria-label={`More details about ${service.title}`}
-        title="More details"
-        className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-[#102E50]/15 text-[#102E50] transition-colors duration-300 hover:border-[var(--secondary)] hover:text-[var(--secondary)]"
-      >
-        <LuPlus size={16} />
-      </button>
-
-      {/* Icon */}
-      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E] transition-all duration-500 group-hover:bg-[#F5C45E] group-hover:text-[#102E50] sm:h-12 sm:w-12">
-        <Icon size={22} strokeWidth={1.7} />
+        <select
+          id="service-category"
+          value={selectedCategory}
+          onChange={(e) => onCategoryChange(e.target.value)}
+          className="w-full appearance-none rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
+        >
+          {categories.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.eyebrow}
+            </option>
+          ))}
+        </select>
       </div>
 
-      {/* Title */}
-      <h3 className="mb-2 pr-8 font-serif text-lg font-semibold text-[#102E50] xs:text-xl">
-        <button
-          type="button"
-          onClick={onOpenBooking}
-          className="block w-full text-left line-clamp-2 transition-colors duration-300 hover:text-[var(--secondary)]"
+      {/* Service */}
+      <div>
+        <label
+          htmlFor="specific-service"
+          className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]"
         >
-          {service.title}
-        </button>
-      </h3>
+          Specific Service
+        </label>
 
-      {/* Description */}
-      <p className="mb-5 font-sans text-[13px] leading-6 text-[var(--secondary)] line-clamp-3">
-        {service.description}
-      </p>
+        <select
+          id="specific-service"
+          value={selectedService}
+          onChange={(e) => onServiceChange(e.target.value)}
+          className="w-full appearance-none rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
+        >
+          {category?.services.map((service) => (
+            <option key={service.title} value={service.title}>
+              {service.title}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      {/* Learn more */}
-      <button
-        type="button"
-        onClick={onOpenBooking}
-        className="mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--accent)] transition-colors duration-300 group-hover:text-[var(--secondary)]"
-      >
-        Learn More
-
-        <LuArrowUpRight
-          size={14}
-          className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-        />
-      </button>
     </div>
   );
 }
 
 
 // ============================================================
-// SERVICE DETAIL OVERLAY
+// SELECTED SERVICE DISPLAY
 // ============================================================
 
-function ServiceDetailOverlay({
+function SelectedService({
   service,
-  onClose,
+  category,
   onOpenBooking,
 }: {
   service: Service;
-  onClose: () => void;
+  category: ServiceCategory;
   onOpenBooking: () => void;
 }) {
   const Icon = service.icon;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#102E50]/60 px-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-8 shadow-2xl"
-      >
+    <div className="relative mt-10 overflow-hidden rounded-3xl border border-[#102E50]/10 bg-white shadow-xl">
 
-        {/* Close */}
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close details"
-          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[var(--secondary)] transition-colors hover:bg-[var(--secondary)]/10 hover:text-[#102E50]"
-        >
-          <LuX size={18} />
-        </button>
+      {/* Accent */}
+      <div className="absolute left-0 top-0 h-1.5 w-full bg-[#F5C45E]" />
 
-        {/* Header */}
-        <div className="mb-5 flex flex-row items-center gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#102E50] text-[#F5C45E]">
-            <Icon size={24} strokeWidth={1.7} />
+      <div className="grid lg:grid-cols-[1fr_0.8fr]">
+
+        {/* Main content */}
+        <div className="p-7 sm:p-10 lg:p-12">
+
+          <div className="mb-7 flex items-start gap-5">
+
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#102E50] text-[#F5C45E]">
+              <Icon size={26} strokeWidth={1.6} />
+            </div>
+
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--accent)]">
+                {category.eyebrow}
+              </p>
+
+              <h3 className="font-serif text-2xl font-semibold leading-tight text-[#102E50] sm:text-3xl">
+                {service.title}
+              </h3>
+            </div>
+
           </div>
 
-          <h3 className="max-w-xs font-serif text-xl font-semibold text-[var(--accent)]">
-            {service.title}
-          </h3>
+          <p className="mb-5 font-sans text-base leading-7 text-[var(--secondary)]">
+            {service.description}
+          </p>
+
+          <p className="font-sans text-sm leading-7 text-gray-600">
+            {service.details}
+          </p>
+
+          <button
+            type="button"
+            onClick={onOpenBooking}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#102E50] px-7 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[var(--secondary)] hover:shadow-xl"
+          >
+            Start a Conversation
+            <LuArrowUpRight size={15} />
+          </button>
+
         </div>
 
-        {/* Details */}
-        <p className="mb-5 font-sans text-sm leading-7 text-[var(--secondary)]">
-          {service.details}
-        </p>
 
         {/* Highlights */}
-        <ul className="mb-8 space-y-3">
-          {service.highlights.map((point, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-3 font-sans text-sm text-[var(--primary)]"
-            >
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--secondary)]" />
+        <div className="bg-[#102E50] p-7 text-white sm:p-10 lg:p-12">
 
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#F5C45E]">
+            Key Highlights
+          </p>
 
-        {/* CTA */}
-        <button
-          type="button"
-          onClick={onOpenBooking}
-          className="inline-flex w-full items-center justify-center rounded-full bg-[#102E50] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[var(--secondary)]"
-        >
-          Start a Conversation
-        </button>
+          <ul className="space-y-5">
+
+            {service.highlights.map((point, index) => (
+              <li
+                key={index}
+                className="flex items-start gap-4"
+              >
+                <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-[#F5C45E]" />
+
+                <span className="font-sans text-sm leading-6 text-white/85">
+                  {point}
+                </span>
+              </li>
+            ))}
+
+          </ul>
+
+        </div>
+
       </div>
     </div>
   );
@@ -853,40 +706,89 @@ function ServiceDetailOverlay({
 // ============================================================
 
 export default function Services() {
-  const [formVisible, setFormVisible] = useState(false);
+
+  const [formVisible, setFormVisible] =
+    useState(false);
 
   const [active, setActive] =
     useState<Audience>("individual");
 
+  const categories = serviceData[active];
+
+  const [selectedCategory, setSelectedCategory] =
+    useState(categories[0].id);
+
   const [selectedService, setSelectedService] =
-    useState<Service | null>(null);
-
-  const [activeTab, setActiveTab] =
-    useState<ServiceTab>("Medical");
+    useState(categories[0].services[0].title);
 
 
   // ----------------------------------------------------------
-  // Current tabs based on audience
+  // Current category
   // ----------------------------------------------------------
 
-  const tabs =
-    active === "individual"
-      ? individualTabs
-      : corporateTabs;
-
-
-  // ----------------------------------------------------------
-  // Find category associated with selected tab
-  // ----------------------------------------------------------
-
-  const selectedTabConfig = tabs.find(
-    (tab) => tab.label === activeTab
+  const currentCategory = useMemo(
+    () =>
+      categories.find(
+        (category) =>
+          category.id === selectedCategory
+      ) ?? categories[0],
+    [categories, selectedCategory]
   );
 
-  const categories = serviceData[active].filter(
-    (category) =>
-      category.id === selectedTabConfig?.categoryId
+
+  // ----------------------------------------------------------
+  // Current service
+  // ----------------------------------------------------------
+
+  const currentService = useMemo(
+    () =>
+      currentCategory.services.find(
+        (service) =>
+          service.title === selectedService
+      ) ?? currentCategory.services[0],
+    [currentCategory, selectedService]
   );
+
+
+  // ----------------------------------------------------------
+  // Category change
+  // ----------------------------------------------------------
+
+  const handleCategoryChange = (id: string) => {
+
+    const category =
+      categories.find(
+        (item) => item.id === id
+      );
+
+    if (!category) return;
+
+    setSelectedCategory(id);
+    setSelectedService(
+      category.services[0].title
+    );
+  };
+
+
+  // ----------------------------------------------------------
+  // Audience change
+  // ----------------------------------------------------------
+
+  const changeAudience = (audience: Audience) => {
+
+    const nextCategories =
+      serviceData[audience];
+
+    setActive(audience);
+
+    setSelectedCategory(
+      nextCategories[0].id
+    );
+
+    setSelectedService(
+      nextCategories[0].services[0].title
+    );
+  };
 
 
   // ----------------------------------------------------------
@@ -894,34 +796,7 @@ export default function Services() {
   // ----------------------------------------------------------
 
   const handleBookingOpen = () => {
-    setSelectedService(null);
     setFormVisible(true);
-  };
-
-
-  // ----------------------------------------------------------
-  // Audience switch
-  // ----------------------------------------------------------
-
-  const changeAudience = (audience: Audience) => {
-    setActive(audience);
-    setSelectedService(null);
-
-    if (audience === "individual") {
-      setActiveTab("Medical");
-    } else {
-      setActiveTab("Employee Benefits");
-    }
-  };
-
-
-  // ----------------------------------------------------------
-  // Tab switch
-  // ----------------------------------------------------------
-
-  const changeTab = (tab: ServiceTab) => {
-    setActiveTab(tab);
-    setSelectedService(null);
   };
 
 
@@ -932,13 +807,13 @@ export default function Services() {
   return (
     <main className="h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth scrollbar-none">
 
+
       {/* ======================================================
           HERO
       ====================================================== */}
 
       <section className="relative flex min-h-screen snap-start items-center overflow-hidden bg-[var(--foreground)]/8 px-6 sm:px-10 lg:px-20">
 
-        {/* Decorative circles */}
         <div className="absolute -right-40 -top-40 h-[400px] w-[400px] rounded-full border border-[var(--primary)]/30 lg:h-[600px] lg:w-[600px]" />
 
         <div className="absolute -bottom-40 -left-40 h-[300px] w-[300px] rounded-full border border-[var(--accent)]/50 lg:h-[700px] lg:w-[700px]" />
@@ -960,37 +835,40 @@ export default function Services() {
           </h2>
 
         </div>
+
       </section>
 
 
       {/* ======================================================
-          ALL SERVICES
+          SERVICES
       ====================================================== */}
 
       <section
         id="services"
         className="relative snap-start bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20"
       >
+
         <div className="mx-auto max-w-7xl">
 
+
           {/* Section heading */}
-          <div className="mb-10 max-w-3xl">
+
+          <div className="mx-auto mb-12 max-w-3xl text-center">
 
             <h3 className="mb-4 font-bold uppercase tracking-[0.3em] text-[var(--accent)]">
               What We Offer
             </h3>
 
-            <p className="max-w-4xl font-sans text-sm leading-8 text-gray-600 sm:text-lg">
-              Explore our range of financial, insurance, investment, and
-              retirement solutions. Select a category below to discover
-              the solutions available to you.
+            <p className="font-sans text-sm leading-8 text-gray-600 sm:text-lg">
+              Explore our solutions by selecting a service category and
+              then choosing the specific solution that matches your needs.
             </p>
 
           </div>
 
 
           {/* ==================================================
-              INDIVIDUAL / CORPORATE TOGGLE
+              INDIVIDUAL / CORPORATE
           ================================================== */}
 
           <div className="mb-12 flex justify-center">
@@ -999,90 +877,67 @@ export default function Services() {
 
               <button
                 type="button"
-                onClick={() => changeAudience("individual")}
-                className={`rounded-full px-7 py-2.5 text-sm font-semibold transition-all duration-300 ease-in-out ${
+                onClick={() =>
+                  changeAudience("individual")
+                }
+                className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 ${
                   active === "individual"
                     ? "bg-[var(--primary)] text-white shadow-lg"
                     : "text-[var(--secondary)] hover:text-[var(--primary)]"
                 }`}
               >
-                Individual
+                Individuals
               </button>
 
               <button
                 type="button"
-                onClick={() => changeAudience("corporate")}
-                className={`rounded-full px-7 py-2.5 text-sm font-semibold transition-all duration-300 ease-in-out ${
+                onClick={() =>
+                  changeAudience("corporate")
+                }
+                className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 ${
                   active === "corporate"
                     ? "bg-[#102E50] text-white shadow-lg"
                     : "text-[#102E50] hover:text-[var(--secondary)]"
                 }`}
               >
-                Corporate
+                Businesses
               </button>
 
             </div>
+
           </div>
 
 
           {/* ==================================================
-              SERVICE CATEGORY TABS
+              SERVICE SELECTORS
           ================================================== */}
 
-          <ServicesTabs
-            tabs={tabs}
-            activeTab={activeTab}
-            onTabClick={changeTab}
+          <ServiceSelector
+            categories={categories}
+            selectedCategory={selectedCategory}
+            selectedService={selectedService}
+            onCategoryChange={handleCategoryChange}
+            onServiceChange={setSelectedService}
           />
 
 
           {/* ==================================================
-              SELECTED SERVICE CATEGORY
+              SELECTED SERVICE
           ================================================== */}
 
-          <div className="grid grid-cols-1 gap-10">
-
-            {categories.map((category) => (
-
-              <div
-                key={`${active}-${category.id}`}
-                className="flex flex-col gap-8"
-              >
-
-                {/* Category introduction */}
-                <CategoryHeader category={category} />
-
-
-                {/* Service cards */}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-                  {category.services.map((service, index) => (
-
-                    <ServiceCard
-                      key={`${active}-${category.id}-${index}`}
-                      service={service}
-                      onOpenBooking={handleBookingOpen}
-                      onOpenDetails={() =>
-                        setSelectedService(service)
-                      }
-                    />
-
-                  ))}
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
+          <SelectedService
+            category={currentCategory}
+            service={currentService}
+            onOpenBooking={handleBookingOpen}
+          />
 
         </div>
+
       </section>
 
 
       {/* ======================================================
-          CONTACT / CTA
+          CTA
       ====================================================== */}
 
       <section
@@ -1115,24 +970,12 @@ export default function Services() {
           </button>
 
         </div>
+
       </section>
 
 
       {/* ======================================================
-          SERVICE DETAIL MODAL
-      ====================================================== */}
-
-      {selectedService && (
-        <ServiceDetailOverlay
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-          onOpenBooking={handleBookingOpen}
-        />
-      )}
-
-
-      {/* ======================================================
-          BOOKING FORM MODAL
+          BOOKING FORM
       ====================================================== */}
 
       {formVisible && (
