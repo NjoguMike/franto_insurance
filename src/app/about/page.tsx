@@ -39,44 +39,44 @@ function About() {
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-8rem)] max-w-lg sm:max-w-7xl flex-col justify-center">
           <div className="max-w-4xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Franto Insurance Agency </p>
-            <h1 className="font-serif text-4xl font-bold leading-tight text-[var(--primary)] sm:text-6xl lg:text-7xl">
+            <p className="mb-7 sm:mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> Franto Insurance Agency </p>
+            <h1 className="font-serif text-4xl font-bold leading-tight text-[var(--primary)] sm:text-5xl lg:text-7xl">
               Building confidence for
               <span className="block text-[var(--accent)]">
                 every financial future.
               </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--secondary)] sm:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--secondary)] sm:text-md">
               At Franto Insurance Agency, we believe financial protection is more than preparing for uncertainty. It is about creating the confidence to move forward, pursue opportunities, and build a secure future.
             </p>
           </div>
 
           {/* Mission and Vision */}
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl bg-[var(--primary)] p-8 text-white shadow-xl sm:p-10">
-              <div className="flex gap-6 items-baseline">
-                <div className="mb-6 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--primary)]">
-                  <LuTarget size={24} />
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl bg-[var(--primary)] p-6 text-white shadow-xl sm:p-8">
+              <div className="flex gap-3 items-baseline">
+                <div className="mb-6 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--primary)]">
+                  <LuTarget size={22} />
                 </div>
-                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--accent)]"> Our Mission </p> 
+                <p className="text-md sm:text-lg font-semibold uppercase tracking-[0.1em] text-[var(--accent)]"> Our Mission </p> 
               </div>
 
-              <h2 className="font-serif text-2xl font-bold sm:text-3xl"> Empowering confident decisions. </h2>
+              <h2 className="font-serif text-md font-bold sm:text-lg"> Empowering confident decisions. </h2>
               <p className="mt-5 leading-6 text-white/75 text-xs sm:text-md">
                 Our mission is to empower individuals and businesses with trusted insurance, investment, and retirement solutions that support lasting financial confidence.
               </p>
             </div>
 
-            <div className="rounded-2xl bg-[var(--accent)]/40 p-8 shadow-lg backdrop-blur-md sm:p-10">
-              <div className="flex gap-6 items-baseline">
-                <div className="mb-6 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--accent)]">
-                <LuHeartHandshake size={28} />
+            <div className="rounded-2xl bg-[var(--accent)]/40 p-6 shadow-lg backdrop-blur-md sm:p-8">
+              <div className="flex gap-3 items-baseline">
+                <div className="mb-6 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[var(--primary)] text-[var(--accent)]">
+                  <LuHeartHandshake size={22} />
                 </div>
-                <p className="text-lg sm:text-2xl font-semibold uppercase tracking-[0.1em] text-[var(--primary)]"> Our Vision </p> 
+                <p className="text-md sm:text-lg font-semibold uppercase tracking-[0.1em] text-[var(--primary)]"> Our Vision </p> 
               </div>
 
-              <h2 className="font-serif text-2xl font-bold sm:text-3xl text-[var(--secondary)]"> Endless financial possibilities. </h2>
+              <h2 className="font-serif text-md font-bold sm:text-lg text-[var(--secondary)]"> Endless financial possibilities. </h2>
               <p className="mt-5 leading-6 text-blue/75 text-xs sm:text-md">
                 We envision a future where more people have access to the knowledge, protection, and financial opportunities needed to achieve their ambitions.
               </p>
@@ -86,12 +86,12 @@ function About() {
       </section>
 
       {/* =====================================================     VALUES      ===================================================== */}
-      <section id="values" className=" min-h-screen snap-start bg-[var(--secondary)]/20 px-6 py-24 sm:px-10 lg:px-20 flex items-center ">
+      <section id="values" className=" min-h-screen snap-start bg-[var(--primary)]/10 px-6 py-24 sm:px-10 lg:px-20 flex items-center ">
         <div className="mx-auto max-w-7xl flex flex-col lg:gap-18">
           <div className="max-w-3xl">
             <p className="mb-8 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]"> What Guides Us </p>
-            <h2 className="font-serif text-3xl font-bold text-[var(--primary)] sm:text-5xl"> Values that define how we serve. </h2>
-            <p className="mt-6 max-w-sm sm:max-w-7xl text-md sm:text-xl leading-8 text-[var(--primary)]/70">
+            <h2 className="font-serif text-3xl font-bold text-[var(--primary)] sm:text-4xl"> Values that define how we serve. </h2>
+            <p className="mt-6 max-w-md sm:max-w-7xl text-md sm:text-lg leading-8 text-[var(--primary)]/70">
               Our values shape every relationship, recommendation, and financial solution we provide.
             </p>
           </div>
@@ -101,12 +101,12 @@ function About() {
               const Icon = value.icon;
 
               return (
-                <article key={value.title} className=" group rounded-2xl border border-[var(--primary)]/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ">
+                <article key={value.title} className=" group rounded-2xl border border-[var(--primary)]/10 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ">
                   <div className="flex items-end gap-4">
-                    <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--accent)] transition-transform duration-300 group-hover:scale-110">
-                      <Icon size={20} />
+                    <div className="flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-lg bg-[var(--primary)] text-[var(--accent)] transition-transform duration-300 group-hover:scale-110">
+                      <Icon size={18} />
                     </div>
-                    <h3 className="font-serif text-lg md:text-2xl lg:text-xl font-bold text-[var(--primary)]"> {value.title} </h3>
+                    <h3 className="font-serif text-xl md:text-2xl lg:text-xl font-bold text-[var(--primary)]"> {value.title} </h3>
                   </div>
                   <p className="mt-4 leading-6 text-gray-600 text-xs md:text-md"> {value.description} </p>
                 </article>

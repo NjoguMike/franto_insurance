@@ -44,20 +44,20 @@ export default function Home() {
           backgroundPosition: 'center',
         }}
       >
-        <div className='h-screen bg-black/30 w-full px-6 py-32 sm:px-10 lg:px-20'>
-          <div className="h-screen relative z-10 mx-auto w-full max-w-7xl pt-10 sm:pt-30">
-            <p className=" mb-5 text-sm sm:text-md font-semibold uppercase tracking-[0.3em] text-[var(--background)] " >
+        <div className='h-screen bg-black/30 w-full px-6 py-32 sm:py-16 sm:px-10 lg:px-20'>
+          <div className="h-screen relative z-10 mx-auto w-full max-w-7xl xs:pt-10 flex flex-col items-start justify-center gap-6 sm:gap-0 lg:gap-8">
+            <p className=" mb-5 sm:mb-10 md:mb-15 text-sm sm:text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-[var(--background)] " >
               Franto Insurance Agency
             </p>
 
-            <h1 className=" max-w-4xl font-serif text-3xl sm:text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-6xl lg:text-7xl " >
+            <h1 className=" max-w-4xl font-serif text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-5xl md:text-6xl lg:text-7xl" >
               Protect what matters.
-              <span className="block text-4xl sm:text-5xl text-[var(--secondary)]"> Build what matters. </span>
+              <span className="block text-4xl sm:text-3xl text-[var(--secondary)]"> Build what matters. </span>
             </h1>
-            <p className=" mt-12 max-w-4xl text-sm sm:text-lg leading-8 text-[var(--background)] sm:text-xl tracking-wider font-sans" >
+            <p className=" mt-8 xs:mt-12 max-w-5xl text-xs leading-8 text-[var(--background)] sm:text-sm md:text-md tracking-wider font-sans" >
               From protecting your health and assets to building wealth and planning for retirement, we're here to help you discover endless financial possibilities.
             </p>
-            <div className="mt-14 flex flex-wrap gap-4">
+            <div className="mt-14 sm:mt-24 flex flex-wrap gap-4">
               <Link href="/services" className=" text-sm rounded-full bg-[var(--primary)] px-7 py-3 font-semibold text-[var(--background)] transition-all duration-300 hover:bg-[var(--secondary)] shadow-lg backdrop-blur-md">
                 Explore Services
               </Link>
@@ -105,7 +105,7 @@ export default function Home() {
 
 
               {/* 4. Bottom Dot Indicators */}
-              <div className="absolute bottom-20 right-5 -translate-x-1/2 flex gap-2 z-20">
+              <div className="md:hidden absolute bottom-20 right-5 -translate-x-1/2 flex gap-2 z-20">
                 {slides.map((_, index) => (
                   <button key={index} onClick={() => setCurrent(index)} className={`h-2 rounded-full transition-all duration-300 ${ current === index ? "w-8 bg-white" : "w-2 bg-white/40" }`}
                   />
@@ -113,13 +113,13 @@ export default function Home() {
               </div>
         </div>
       </section>
-      <section className="h-screen snap-start flex flex-col items-center justify-center gap-4 bg-[var(--background)]">
-        <h1 className="text-3xl lg:text-5xl text-[var(--accent)] font-serif font-bold mb-6">Who Are We</h1>
-        <div className="flex flex-col text-white gap-4">
-          <p className="text-md lg:text-lg text-[var(--primary)]"> We are who you want us to be or a more descriptive statement</p>
+      <section className="h-screen snap-start flex flex-col items-center justify-center gap-6 bg-[var(--background)]">
+        <h1 className="text-3xl lg:text-5xl text-[var(--accent)] font-serif font-bold mb-6">Who We Are</h1>
+        <div className="px-4 text-center text-white gap-6">
+          <p className="text-sm sm:text-md lg:text-lg text-[var(--primary)]"> We are a team of passionate professionals dedicated to providing exceptional services.</p>
           <span className="flex flex-row gap-6 items-center justify-center mt-16">
-            <Link href={'/about'} className="bg-[var(--secondary)] px-6 py-3 rounded-full text-sm hover:bg-[var(--primary)]">About Us</Link>
-            <Link href={'/services'} className="bg-[var(--accent)] px-6 py-3 rounded-full text-sm hover:-translate-y-1/8">Our Services</Link>
+            <Link href={'/about'} className="bg-[var(--primary)] px-5 py-2 rounded-full text-sm hover:bg-[var(--secondary)]">About Us</Link>
+            <Link href={'/services'} className="bg-[var(--accent)] px-5 py-2 rounded-full text-sm hover:bg-[var(--accent2)]">Our Services</Link>
           </span>
         </div>
       </section>

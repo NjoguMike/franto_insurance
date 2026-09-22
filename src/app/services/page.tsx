@@ -1,37 +1,8 @@
 "use client";
 
-import {
-  LuLandmark,
-  LuTrendingUp,
-  LuCar,
-  LuHeartPulse,
-  LuWalletCards,
-  LuArrowUpRight,
-  LuBadgeDollarSign,
-  LuBriefcaseBusiness,
-  LuBuilding2,
-  LuChartNoAxesCombined,
-  LuGraduationCap,
-  LuHouse,
-  LuPlane,
-  LuRefreshCw,
-  LuScale,
-  LuShieldAlert,
-  LuShieldCheck,
-  LuShip,
-  LuUmbrella,
-  LuUserRoundCheck,
-  LuUserRoundCog,
-  LuUsers,
-} from "react-icons/lu";
-
+import { LuLandmark, LuTrendingUp, LuCar, LuHeartPulse, LuWalletCards, LuArrowUpRight, LuBadgeDollarSign, LuBriefcaseBusiness, LuBuilding2, LuChartNoAxesCombined, LuGraduationCap, LuHouse, LuPlane, LuRefreshCw, LuScale, LuShieldAlert, LuShieldCheck, LuShip, LuUmbrella, LuUserRoundCheck, LuUserRoundCog, LuUsers, LuChevronsDown } from "react-icons/lu";
 import { useEffect, useMemo, useState } from "react";
 import BookingForm from "@/components/utility/bookingForm";
-
-
-// ============================================================
-// TYPES
-// ============================================================
 
 interface Service {
   title: string;
@@ -51,10 +22,6 @@ interface ServiceCategory {
 
 type Audience = "individual" | "corporate";
 
-
-// ============================================================
-// SERVICE DATA
-// ============================================================
 
 const serviceData: Record<Audience, ServiceCategory[]> = {
   individual: [
@@ -530,54 +497,34 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
 };
 
 
-// ============================================================
-// SERVICE SELECTOR
-// ============================================================
-
-function ServiceSelector({
-  categories,
-  selectedCategory,
-  selectedService,
-  onCategoryChange,
-  onServiceChange,
-}: {
-  categories: ServiceCategory[];
-  selectedCategory: string;
-  selectedService: string;
-  onCategoryChange: (id: string) => void;
-  onServiceChange: (title: string) => void;
+function ServiceSelector({ categories, selectedCategory, selectedService, onCategoryChange, onServiceChange }: {
+  categories: ServiceCategory[]; selectedCategory: string; selectedService: string;
+  onCategoryChange: (id: string) => void; onServiceChange: (title: string) => void;
 }) {
-  const category = categories.find(
-    (item) => item.id === selectedCategory
-  );
+  const category = categories.find( (item) => item.id === selectedCategory );
 
   return (
     <div className="grid gap-5 md:grid-cols-2">
-
-      {/* Category */}
       <div>
-        <label
-          htmlFor="service-category"
-          className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]"
-        >
+        <label htmlFor="service-category" className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]" >
           Service Category
         </label>
-
-        <select
-          id="service-category"
-          value={selectedCategory}
-          onChange={(e) => onCategoryChange(e.target.value)}
-          className="w-full appearance-none rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
-        >
-          {categories.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.eyebrow}
-            </option>
-          ))}
-        </select>
+        
+        <div className="relative group">
+          <select
+            id="service-category"
+            value={selectedCategory}
+            onChange={(e) => onCategoryChange(e.target.value)}
+            className="w-full appearance-none cursor-pointer rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] focus:outline-none transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_8px_20px_-6px_rgba(16,46,80,0.1)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
+          >
+            {categories.map((item) => ( <option key={item.id} value={item.id} className="w-full rounded-lg px-4 py-3 text-left font-sans text-sm text-[#102E50] transition-colors duration-200 hover:bg-[#102E50]/5 checked:bg-[var(--accent)]/20 checked:text-[var(--accent2)]"> {item.eyebrow} </option> ))}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-5 flex items-center">
+            <LuChevronsDown size={20} className="text-[var(--secondary)] transition-all duration-300 group-hover:text-[var(--primary)] group-hover:scale-110" />
+          </div>
+        </div>
       </div>
 
-      {/* Service */}
       <div>
         <label
           htmlFor="specific-service"
@@ -585,54 +532,33 @@ function ServiceSelector({
         >
           Specific Service
         </label>
-
-        <select
-          id="specific-service"
-          value={selectedService}
-          onChange={(e) => onServiceChange(e.target.value)}
-          className="w-full appearance-none rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] outline-none transition-all duration-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
-        >
-          {category?.services.map((service) => (
-            <option key={service.title} value={service.title}>
-              {service.title}
-            </option>
-          ))}
-        </select>
+        <div className="relative group">
+          <select
+            id="specific-service"
+            value={selectedService}
+            onChange={(e) => onServiceChange(e.target.value)}
+            className="w-full appearance-none cursor-pointer rounded-xl border border-[#102E50]/15 bg-white px-5 py-4 font-sans text-sm text-[#102E50] outline-none transition-all duration-300 hover:border-[var(--accent)]/50 hover:shadow-[0_8px_20px_-6px_rgba(16,46,80,0.1)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/10"
+          > 
+            {category?.services.map((service) => ( <option key={service.title} value={service.title} className="w-full rounded-lg px-4 py-3 text-left font-sans text-sm text-[#102E50] transition-colors duration-200 hover:bg-[#102E50]/5 checked:bg-[var(--accent)]/20 checked:text-[var(--accent2)]"> {service.title} </option> ))}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-5 flex items-center">
+            <LuChevronsDown size={20} className="text-[var(--secondary)] transition-all duration-300 group-hover:text-[var(--primary)] group-hover:scale-110" />
+          </div>
+        </div>
       </div>
 
     </div>
   );
 }
 
-
-// ============================================================
-// SELECTED SERVICE DISPLAY
-// ============================================================
-
-function SelectedService({
-  service,
-  category,
-  onOpenBooking,
-}: {
-  service: Service;
-  category: ServiceCategory;
-  onOpenBooking: () => void;
-}) {
+function SelectedService({ service, category, onOpenBooking }: { service: Service; category: ServiceCategory; onOpenBooking: () => void }) {
   const Icon = service.icon;
 
   return (
     <div className="relative mt-10 overflow-hidden rounded-3xl border border-[#102E50]/10 bg-white shadow-xl">
-
-      {/* Accent */}
-      <div className="absolute left-0 top-0 h-1.5 w-full bg-[#F5C45E]" />
-
       <div className="grid lg:grid-cols-[1fr_0.8fr]">
-
-        {/* Main content */}
         <div className="p-7 sm:p-10 lg:p-12">
-
           <div className="mb-7 flex items-start gap-5">
-
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#102E50] text-[#F5C45E]">
               <Icon size={26} strokeWidth={1.6} />
             </div>
@@ -700,190 +626,90 @@ function SelectedService({
   );
 }
 
-
-// ============================================================
-// MAIN SERVICES PAGE
-// ============================================================
-
 export default function Services() {
 
-  const [formVisible, setFormVisible] =
-    useState(false);
-
-  const [active, setActive] =
-    useState<Audience>("individual");
+  const [formVisible, setFormVisible] = useState(false);
+  const [active, setActive] = useState<Audience>("individual");
 
   const categories = serviceData[active];
 
-  const [selectedCategory, setSelectedCategory] =
-    useState(categories[0].id);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].id);
+  const [selectedService, setSelectedService] = useState(categories[0].services[0].title);
 
-  const [selectedService, setSelectedService] =
-    useState(categories[0].services[0].title);
-
-
-  // ----------------------------------------------------------
-  // Current category
-  // ----------------------------------------------------------
-
-  const currentCategory = useMemo(
-    () =>
-      categories.find(
-        (category) =>
-          category.id === selectedCategory
-      ) ?? categories[0],
-    [categories, selectedCategory]
+  const currentCategory = useMemo( 
+    () => categories.find((category) => category.id === selectedCategory ) ?? categories[0], [categories, selectedCategory]
   );
-
-
-  // ----------------------------------------------------------
-  // Current service
-  // ----------------------------------------------------------
 
   const currentService = useMemo(
-    () =>
-      currentCategory.services.find(
-        (service) =>
-          service.title === selectedService
-      ) ?? currentCategory.services[0],
-    [currentCategory, selectedService]
+    () => currentCategory.services.find((service) => service.title === selectedService ) ?? currentCategory.services[0], [currentCategory, selectedService]
   );
-
-
-  // ----------------------------------------------------------
-  // Category change
-  // ----------------------------------------------------------
 
   const handleCategoryChange = (id: string) => {
 
-    const category =
-      categories.find(
-        (item) => item.id === id
-      );
+    const category = categories.find( (item) => item.id === id );
 
     if (!category) return;
 
     setSelectedCategory(id);
-    setSelectedService(
-      category.services[0].title
-    );
+    setSelectedService( category.services[0].title );
   };
-
-
-  // ----------------------------------------------------------
-  // Audience change
-  // ----------------------------------------------------------
 
   const changeAudience = (audience: Audience) => {
 
-    const nextCategories =
-      serviceData[audience];
+    const nextCategories = serviceData[audience];
 
     setActive(audience);
+    setSelectedCategory( nextCategories[0].id );
 
-    setSelectedCategory(
-      nextCategories[0].id
-    );
-
-    setSelectedService(
-      nextCategories[0].services[0].title
-    );
+    setSelectedService( nextCategories[0].services[0].title );
   };
 
+  const handleBookingOpen = () => { setFormVisible(true)};
 
-  // ----------------------------------------------------------
-  // Booking
-  // ----------------------------------------------------------
-
-  const handleBookingOpen = () => {
-    setFormVisible(true);
-  };
-
-
-  // ==========================================================
-  // RENDER
-  // ==========================================================
 
   return (
     <main className="h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scroll-smooth scrollbar-none">
-
-
-      {/* ======================================================
-          HERO
-      ====================================================== */}
-
-      <section className="relative flex min-h-screen snap-start items-center overflow-hidden bg-[var(--foreground)]/8 px-6 sm:px-10 lg:px-20">
-
+      <section className="relative flex min-h-screen snap-start items-center overflow-hidden bg-[var(--primary)]/10 px-6 sm:px-10 lg:px-20">
         <div className="absolute -right-40 -top-40 h-[400px] w-[400px] rounded-full border border-[var(--primary)]/30 lg:h-[600px] lg:w-[600px]" />
-
         <div className="absolute -bottom-40 -left-40 h-[300px] w-[300px] rounded-full border border-[var(--accent)]/50 lg:h-[700px] lg:w-[700px]" />
-
         <div className="flex w-full flex-col items-center pt-20">
-
-          <h1 className="max-w-4xl font-serif text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-shadow-sm font-serif text-4xl font-semibold leading-tight text-[var(--accent)] sm:text-5xl lg:text-7xl">
             Our Services
           </h1>
 
-          <p className="mt-20 max-w-2xl text-center font-sans text-sm leading-8 tracking-wider text-[var(--secondary)] sm:text-xl lg:text-lg">
+          <p className="mt-20 max-w-2xl text-center font-sans text-sm leading-8 tracking-wider text-[var(--secondary)] sm:text-lg lg:text-lg">
             From protecting your health and assets to building wealth and
             planning for retirement, we&apos;re here to help you discover
             endless financial possibilities.
           </p>
 
-          <h2 className="mt-10 text-center font-serif text-xl font-semibold text-[var(--accent)] sm:text-4xl">
+          <h2 className="mt-10 text-shadow-xs text-center font-serif text-xl font-semibold text-[var(--accent)] sm:text-3xl">
             Every stage of your financial journey, covered.
           </h2>
-
         </div>
-
       </section>
 
-
-      {/* ======================================================
-          SERVICES
-      ====================================================== */}
-
-      <section
-        id="services"
-        className="relative snap-start bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20"
-      >
-
+      <section id="services" className="relative snap-start bg-[var(--background)] px-6 py-24 sm:px-10 lg:px-20" >
         <div className="mx-auto max-w-7xl">
-
-
-          {/* Section heading */}
-
           <div className="mx-auto mb-12 max-w-3xl text-center">
-
             <h3 className="mb-4 font-bold uppercase tracking-[0.3em] text-[var(--accent)]">
               What We Offer
             </h3>
 
             <p className="font-sans text-sm leading-8 text-gray-600 sm:text-lg">
-              Explore our solutions by selecting a service category and
-              then choosing the specific solution that matches your needs.
+              Explore our solutions by selecting a service category and then choosing the specific solution that matches your needs.
             </p>
 
           </div>
 
-
-          {/* ==================================================
-              INDIVIDUAL / CORPORATE
-          ================================================== */}
-
           <div className="mb-12 flex justify-center">
-
-            <div className="flex rounded-full bg-[var(--secondary)]/20 p-1">
-
+            <div className={`flex rounded-full shadow-xs bg-[var(--secondary)]/10 p-1 hover:bg-[var(--secondary)]/20`}>
               <button
                 type="button"
-                onClick={() =>
-                  changeAudience("individual")
-                }
-                className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 ${
+                onClick={() => changeAudience("individual") }
+                className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
                   active === "individual"
-                    ? "bg-[var(--primary)] text-white shadow-lg"
-                    : "text-[var(--secondary)] hover:text-[var(--primary)]"
+                    ? "bg-[var(--primary)] text-white shadow-lg" : "text-[var(--secondary)] hover:text-[var(--primary)]"
                 }`}
               >
                 Individuals
@@ -891,26 +717,16 @@ export default function Services() {
 
               <button
                 type="button"
-                onClick={() =>
-                  changeAudience("corporate")
-                }
-                className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 ${
+                onClick={() => changeAudience("corporate") }
+                className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
                   active === "corporate"
-                    ? "bg-[#102E50] text-white shadow-lg"
-                    : "text-[#102E50] hover:text-[var(--secondary)]"
+                    ? "bg-[#102E50] text-white shadow-lg" : "text-[#102E50] hover:text-[var(--secondary)]"
                 }`}
               >
                 Businesses
               </button>
-
             </div>
-
           </div>
-
-
-          {/* ==================================================
-              SERVICE SELECTORS
-          ================================================== */}
 
           <ServiceSelector
             categories={categories}
@@ -920,38 +736,22 @@ export default function Services() {
             onServiceChange={setSelectedService}
           />
 
-
-          {/* ==================================================
-              SELECTED SERVICE
-          ================================================== */}
-
           <SelectedService
             category={currentCategory}
             service={currentService}
             onOpenBooking={handleBookingOpen}
           />
-
         </div>
-
       </section>
 
-
-      {/* ======================================================
-          CTA
-      ====================================================== */}
-
-      <section
-        id="contact"
-        className="relative snap-start overflow-hidden bg-[#F5C45E] px-6 py-24 sm:px-10 lg:px-20"
-      >
-
+      <section id="contact" className="relative snap-start overflow-hidden bg-[#F5C45E] px-6 py-24 sm:px-10 lg:px-20" >
         <div className="relative z-10 mx-auto max-w-5xl text-center">
 
           <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--background)]">
             Your Future Starts Today
           </p>
 
-          <h2 className="font-serif text-2xl font-semibold text-[var(--secondary)] sm:text-5xl">
+          <h2 className="font-serif text-2xl font-semibold text-[var(--primary)] sm:text-5xl">
             Endless Financial Possibilities.
           </h2>
 
@@ -968,15 +768,8 @@ export default function Services() {
           >
             Start a Conversation
           </button>
-
         </div>
-
       </section>
-
-
-      {/* ======================================================
-          BOOKING FORM
-      ====================================================== */}
 
       {formVisible && (
         <BookingForm
