@@ -18,14 +18,14 @@ export default function Home() {
       title: "Grow Your Wealth",
       desc: "Smart investment strategies to maximize your long-term returns.",
       bg: "bg-[var(--secondary)]",
-      image: "/risk-management.png"
+      image: "/investment.png"
     },
     {
       id: 3,
       title: "Retire with Confidence",
       desc: "Reliable pension schemes designed for a comfortable tomorrow.",
       bg: "bg-[var(--foreground)]",
-      image: "/healthcare.png"
+      image: "/retirement.png"
     }
   ];
 
@@ -54,7 +54,7 @@ export default function Home() {
               Protect what matters.
               <span className="block text-4xl sm:text-3xl text-[var(--secondary)]"> Build what matters. </span>
             </h1>
-            <p className=" mt-8 xs:mt-12 max-w-5xl text-xs leading-8 text-[var(--background)] sm:text-sm md:text-md tracking-wider font-sans" >
+            <p className=" mt-8 xs:mt-12 max-w-5xl text-xs leading-8 text-[var(--background)] sm:text-sm md:text-md lg:text-lg tracking-wider font-sans" >
               From protecting your health and assets to building wealth and planning for retirement, we're here to help you discover endless financial possibilities.
             </p>
             <div className="mt-14 sm:mt-24 flex flex-wrap gap-4">
