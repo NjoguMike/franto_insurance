@@ -1,5 +1,6 @@
 // import { FaInstagram, FaLinkedin } from 'react-icons/fa'
 // import { FaXTwitter } from 'react-icons/fa6'
+import Link from 'next/link'
 import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu'
 
 function Footer() {
@@ -15,8 +16,16 @@ function Footer() {
         </div>
         <div className='flex flex-row gap-4 cursor-pointer px-2'>
           <span className='cursor-pointer transition-transform duration-300 hover:scale-125 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-[var(--background)] rounded-sm p-1.5'><LuInstagram size={24}/></span>
-          <span className='cursor-pointer flex items-end rounded-sm transition-transform duration-300 hover:scale-125 bg-[#273c99] text-[var(--background)] px-1'><LuFacebook size={28} fill='white'/></span>
-          <span className='cursor-pointer transition-transform duration-300 hover:scale-125 bg-[#0c83e6] text-white rounded-sm p-1.5'><LuLinkedin  size={24} fill='white'/></span>
+          <span className='cursor-pointer flex items-end rounded-sm transition-transform duration-300 hover:scale-125 bg-[#273c99] text-[var(--background)] px-1'>
+            <Link href="https://www.facebook.com/people/Franto-Insurance-Agency/100083415733405/" target="_blank" rel="noopener noreferrer">
+              <LuFacebook size={28} fill='white'/>
+            </Link>
+          </span>
+          <span className='cursor-pointer transition-transform duration-300 hover:scale-125 bg-[#0c83e6] text-white rounded-sm p-1.5'>
+            <Link href="https://www.linkedin.com/company/frantoinsuranceagency" target="_blank" rel="noopener noreferrer">
+              <LuLinkedin  size={24} fill='white'/>
+            </Link  >
+          </span>
         </div>
       </div>
       <div className='grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 mt-10 sm:mt-0 sm:px-2 sm:justify-end'>
@@ -31,8 +40,8 @@ function Footer() {
         <div>
           <h2 className='text-xl font-serif font-semibold py-2 tracking-wider'>Address</h2>
           <div className='px-2 text-white text-sm leading-8'>
-            <p>Contact : 0700 123 456</p>
-            <p>Email Support : info@frantoinsurance.com</p>
+            <p>Contact : <Link href="tel:+254118978911" target="_blank" rel="noopener noreferrer">+254 118 978911</Link></p>
+            <p>Email Support : <Link href="mailto:info@frantoinsurance.com" target="_blank" rel="noopener noreferrer">info@frantoinsurance.com</Link></p>
             <p>Operating Hours : 8:00 AM - 5:00 PM
             </p>
           </div>
