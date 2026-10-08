@@ -1,54 +1,108 @@
-// import { FaInstagram, FaLinkedin } from 'react-icons/fa'
-// import { FaXTwitter } from 'react-icons/fa6'
-import Link from 'next/link'
-import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu'
+import Link from "next/link";
+import { LuFacebook, LuInstagram, LuLinkedin, LuMail, LuPhone } from "react-icons/lu";
 
 function Footer() {
   return (
-    <div className='grid sm:grid-cols-[1.2fr_1fr] bg-[#102E50] text-[#F5C45E] px-10 sm:px-16 py-20 gap-8'>
-      <div className='flex flex-col gap-8 justify-between '>
-        <div className='flex items-start gap-2'>
-          <img src={"/header_logo.png"} alt="Franto Insurance" className="block w-14 h-14 shrink-0 object-contain backdrop-blur-lg" />
-          <div className='min-w-[200px] flex flex-col pr-4'>
-            <h2 className='text-lg sm:text-xl md:text-2xl font-serif tracking-wide font-bold leading-6 text-white'> Franto Insurance Agency </h2>
-            <p className='py-2 text-lg font-cursive tracking-widest text-[var(--accent)]'> endless financial possibilities</p>
-          </div>
-        </div>
-        <div className='flex flex-row gap-4 cursor-pointer px-2'>
-          <span className='cursor-pointer transition-transform duration-300 hover:scale-125 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-[var(--background)] rounded-sm p-1.5'><LuInstagram size={24}/></span>
-          <span className='cursor-pointer flex items-end rounded-sm transition-transform duration-300 hover:scale-125 bg-[#273c99] text-[var(--background)] px-1'>
-            <Link href="https://www.facebook.com/people/Franto-Insurance-Agency/100083415733405/" target="_blank" rel="noopener noreferrer">
-              <LuFacebook size={28} fill='white'/>
-            </Link>
-          </span>
-          <span className='cursor-pointer transition-transform duration-300 hover:scale-125 bg-[#0c83e6] text-white rounded-sm p-1.5'>
-            <Link href="https://www.linkedin.com/company/frantoinsuranceagency" target="_blank" rel="noopener noreferrer">
-              <LuLinkedin  size={24} fill='white'/>
-            </Link  >
-          </span>
-        </div>
-      </div>
-      <div className='grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 mt-10 sm:mt-0 sm:px-2 sm:justify-end'>
-        <div>
-          <h2 className='text-xl font-serif font-semibold py-2 tracking-wider'>Services</h2>
-          <div className='px-2 text-white text-sm leading-8 cursor-pointer'>
-            <p>Insurance</p>
-            <p>Investments</p>
-            <p>Pension</p>
-          </div>
-        </div>
-        <div>
-          <h2 className='text-xl font-serif font-semibold py-2 tracking-wider'>Address</h2>
-          <div className='px-2 text-white text-sm leading-8'>
-            <p>Contact : <Link href="tel:+254118978911" target="_blank" rel="noopener noreferrer">+254 118 978911</Link></p>
-            <p>Email Support : <Link href="mailto:info@frantoinsurance.com" target="_blank" rel="noopener noreferrer">info@frantoinsurance.com</Link></p>
-            <p>Operating Hours : 8:00 AM - 5:00 PM
+    <footer className="bg-[#102E50] text-white">
+      {/* Main Footer */}
+      <div className="grid gap-10 px-8 py-16 sm:px-12 md:grid-cols-[max-content_max-content] md:justify-between md:px-16 lg:px-20 lg:py-20">
+        
+        {/* Brand */}
+        <div className="flex flex-col justify-between gap-10">
+          <div className="max-w-md">
+            <h2 className="font-serif text-xl font-bold tracking-wide text-white sm:text-2xl"> Franto Insurance Agency </h2>
+
+            <div className="mt-3 h-px w-12 bg-[#F5C45E]" />
+
+            <p className="mt-4 font-serif text-sm italic tracking-[0.18em] text-[#F5C45E] sm:text-xs">
+              endless financial possibilities
+            </p>
+
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/70">
+              Protect what matters, grow what matters, and build a more secure financial future with Franto Insurance Agency.
             </p>
           </div>
+
+          {/* Socials */}
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50"> Connect with us </p>
+
+            <div className="flex items-center gap-3">
+              <Link
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Franto Insurance Agency on Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-[#F5C45E] transition-all duration-300 hover:border-[#F5C45E] hover:bg-[#F5C45E] hover:text-[#102E50]"
+              >
+                <LuInstagram size={19} />
+              </Link>
+
+              <Link
+                href="https://www.facebook.com/people/Franto-Insurance-Agency/100083415733405/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Franto Insurance Agency on Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-[#F5C45E] transition-all duration-300 hover:border-[#F5C45E] hover:bg-[#F5C45E] hover:text-[#102E50]"
+              >
+                <LuFacebook size={19} />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/company/frantoinsuranceagency"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Franto Insurance Agency on LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-[#F5C45E] transition-all duration-300 hover:border-[#F5C45E] hover:bg-[#F5C45E] hover:text-[#102E50]"
+              >
+                <LuLinkedin size={19} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Contact */}
+        <div>
+          <h2 className="font-serif text-lg font-semibold tracking-wider text-[#F5C45E]"> Contact </h2>
+
+          <div className="mt-5 flex flex-col gap-4 text-sm">
+            <Link
+              href="tel:+254118978911"
+              className="group flex items-start gap-3 text-white/75 transition-colors duration-300 hover:text-[#F5C45E]"
+            >
+              <LuPhone size={17} className="mt-0.5 shrink-0 text-[#F5C45E]" />
+              <span>+254 118 978911</span>
+            </Link>
+
+            <Link
+              href="mailto:info@frantoinsurance.com"
+              className="group flex no-wrap items-start gap-3 break-all text-white/75 transition-colors duration-300 hover:text-[#F5C45E]"
+            >
+              <LuMail size={17} className="mt-0.5 shrink-0 text-[#F5C45E]" />
+              <span>info@frantoinsurance.com</span>
+            </Link>
+
+            <div className="mt-1 ml-8">
+              <p className="text-xs uppercase tracking-wider text-white/40"> Operating Hours </p>
+              <p className="mt-1 text-white/75"> 8:00 AM – 5:00 PM </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+
+      {/* Bottom Bar */}
+      <div className="mx-8 border-t border-white/10 sm:mx-12 md:mx-16 lg:mx-20">
+        <div className="flex flex-col gap-3 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p> © {new Date().getFullYear()} Franto Insurance Agency. All rights reserved. </p>
+
+          <div className="flex gap-5">
+            <Link href="/privacy-policy" className="transition-colors hover:text-[#F5C45E]" > Privacy Policy </Link>
+            <Link href="/terms" className="transition-colors hover:text-[#F5C45E]" > Terms & Conditions </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

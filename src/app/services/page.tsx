@@ -1,7 +1,7 @@
 "use client";
 
 import { LuLandmark, LuTrendingUp, LuCar, LuHeartPulse, LuWalletCards, LuArrowUpRight, LuBadgeDollarSign, LuBriefcaseBusiness, LuBuilding2, LuChartNoAxesCombined, LuGraduationCap, LuHouse, LuPlane, LuRefreshCw, LuScale, LuShieldAlert, LuShieldCheck, LuShip, LuUmbrella, LuUserRoundCheck, LuUserRoundCog, LuUsers, LuChevronsDown } from "react-icons/lu";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import BookingForm from "@/components/utility/bookingForm";
 
 interface Service {
@@ -9,6 +9,7 @@ interface Service {
   description: string;
   details: string;
   highlights: string[];
+  image: string;
   icon: any;
 }
 
@@ -34,6 +35,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Individual & Family Medical",
+          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect yourself and your family with flexible medical cover designed around your healthcare needs.",
           details:
@@ -57,6 +59,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Term Life Insurance",
+          image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1400&q=85",
           description:
             "Provide affordable financial protection for your loved ones over a defined period.",
           details:
@@ -70,6 +73,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Whole Life & Endowment",
+          image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
           description:
             "Combine long-term financial protection with structured savings and future financial planning.",
           details:
@@ -83,6 +87,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Education Savings Plan",
+          image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=85",
           description:
             "Start planning today for the education and opportunities you want to provide for your children.",
           details:
@@ -96,6 +101,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Credit Life Protection",
+          image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your family from the burden of outstanding loans and credit obligations.",
           details:
@@ -119,6 +125,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Private Motor Insurance",
+          image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your vehicle and drive with confidence knowing you're covered when the unexpected happens.",
           details:
@@ -132,6 +139,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Home Insurance",
+          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your home, belongings, and the value you've worked hard to build.",
           details:
@@ -145,6 +153,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Personal Accident Insurance",
+          image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect yourself financially against the unexpected impact of accidental injury or disability.",
           details:
@@ -158,6 +167,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Travel Insurance",
+          image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=85",
           description:
             "Travel with greater confidence knowing you're protected against unexpected events along the way.",
           details:
@@ -181,6 +191,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Unit Trust Investments",
+          image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=85",
           description:
             "Access professionally managed investment portfolios designed to help you grow your wealth over time.",
           details:
@@ -194,6 +205,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Wealth Management",
+          image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
           description:
             "Build, manage, and preserve your wealth with a strategy designed around your complete financial picture.",
           details:
@@ -207,6 +219,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Structured Investment Plans",
+          image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85",
           description:
             "Turn specific financial goals into a disciplined investment strategy built around your timeline and objectives.",
           details:
@@ -230,6 +243,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Personal Pension Plan",
+          image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85",
           description:
             "Build a dedicated retirement fund through structured contributions made throughout your working years.",
           details:
@@ -243,6 +257,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Annuities & Retirement Drawdowns",
+          image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85",
           description:
             "Turn your accumulated retirement savings into a sustainable source of income when you retire.",
           details:
@@ -268,6 +283,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Group Medical Insurance",
+          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85",
           description:
             "Give your employees and their families access to dependable healthcare protection as part of a competitive benefits package.",
           details:
@@ -281,6 +297,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Group Life & Last Expense",
+          image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85",
           description:
             "Provide employees and their families with financial support when they need it most.",
           details:
@@ -294,6 +311,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Group Personal Accident & WIBA",
+          image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your workforce against financial consequences arising from covered workplace and accidental risks.",
           details:
@@ -307,6 +325,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Corporate Pension Schemes",
+          image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85",
           description:
             "Build a stronger employee benefits package with structured retirement savings for your workforce.",
           details:
@@ -330,6 +349,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Property All Risks & Fire",
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your commercial buildings, equipment, stock, and other business assets against covered property risks.",
           details:
@@ -343,6 +363,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Commercial Motor & Fleet Insurance",
+          image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=85",
           description:
             "Keep your business vehicles and drivers protected with cover built around commercial operations.",
           details:
@@ -356,6 +377,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Business Interruption",
+          image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your business's financial continuity when an insured event disrupts normal operations.",
           details:
@@ -369,6 +391,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Goods in Transit & Marine",
+          image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your goods and cargo while they move through your supply chain.",
           details:
@@ -392,6 +415,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Public & Product Liability",
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your business against eligible third-party claims arising from your premises, operations, or products.",
           details:
@@ -405,6 +429,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Professional Indemnity",
+          image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your professional practice against financial claims arising from alleged errors, omissions, or negligence.",
           details:
@@ -418,6 +443,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Directors & Officers Insurance",
+          image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=85",
           description:
             "Give your leadership team an additional layer of protection against claims arising from management decisions.",
           details:
@@ -431,6 +457,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Cyber & Crime Risk",
+          image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=85",
           description:
             "Strengthen your financial resilience against cyber incidents, fraud, theft, and other emerging business risks.",
           details:
@@ -454,6 +481,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
       services: [
         {
           title: "Key Person Protection",
+          image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1400&q=85",
           description:
             "Protect your business against the financial impact of losing an individual whose expertise is critical to your success.",
           details:
@@ -467,6 +495,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Corporate Credit Life",
+          image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85",
           description:
             "Help protect your business against eligible outstanding credit obligations following the loss of a key borrower.",
           details:
@@ -480,6 +509,7 @@ const serviceData: Record<Audience, ServiceCategory[]> = {
         },
         {
           title: "Treasury & Wealth Management",
+          image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=85",
           description:
             "Put your company's capital to disciplined use while balancing growth, liquidity, and risk.",
           details:
@@ -556,23 +586,21 @@ function SelectedService({ service, category, onOpenBooking }: { service: Servic
 
   return (
     <div className="relative mt-10 overflow-hidden rounded-3xl border border-[#102E50]/10 bg-white shadow-xl">
-      <div className="grid lg:grid-cols-[1fr_0.8fr]">
-        <div className="p-7 sm:p-10 lg:p-12">
+      <div className="grid lg:grid-cols-[1fr_0.9fr] lg:grid-rows-[auto_1fr]">
+        {/* Main service information */}
+        <div className="p-7 sm:p-10 lg:col-start-1 lg:row-start-1 lg:p-12">
           <div className="mb-7 flex items-start gap-5">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#102E50] text-[#F5C45E]">
               <Icon size={26} strokeWidth={1.6} />
             </div>
-
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--accent)]">
                 {category.eyebrow}
               </p>
-
               <h3 className="font-serif text-2xl font-semibold leading-tight text-[#102E50] sm:text-3xl">
                 {service.title}
               </h3>
             </div>
-
           </div>
 
           <p className="mb-5 font-sans text-base leading-7 text-[var(--secondary)]">
@@ -586,42 +614,76 @@ function SelectedService({ service, category, onOpenBooking }: { service: Servic
           <button
             type="button"
             onClick={onOpenBooking}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#102E50] px-7 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[var(--secondary)] hover:shadow-xl"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#102E50] px-7 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[var(--secondary)] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
           >
             Start a Conversation
             <LuArrowUpRight size={15} />
           </button>
-
         </div>
 
-
-        {/* Highlights */}
-        <div className="bg-[#102E50] p-7 text-white sm:p-10 lg:p-12">
-
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#F5C45E]">
-            Key Highlights
-          </p>
-
-          <ul className="space-y-5">
-
-            {service.highlights.map((point, index) => (
-              <li
-                key={index}
-                className="flex items-start gap-4"
-              >
-                <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-[#F5C45E]" />
-
-                <span className="font-sans text-sm leading-6 text-white/85">
-                  {point}
-                </span>
-              </li>
-            ))}
-
-          </ul>
-
+        {/* Dynamic service image */}
+        <div className="relative min-h-[360px] overflow-hidden lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:min-h-[500px]">
+          <img
+            key={service.image}
+            src={service.image}
+            alt={service.title}
+            className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#102E50]/90 via-[#102E50]/20 to-transparent" />
+          <div className="absolute left-6 top-6 h-12 w-12 rounded-full border border-[#F5C45E]/60" />
+          <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-9">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#F5C45E]">
+              {category.eyebrow}
+            </p>
+            <h4 className="mt-2 max-w-md font-serif text-xl font-semibold leading-tight text-white sm:text-2xl">
+              {service.title}
+            </h4>
+            <div className="mt-4 h-px w-16 bg-[#F5C45E]" />
+          </div>
         </div>
 
+        {/* Key highlights */}
+        <div className="border-t border-white/10 bg-[#102E50] p-7 text-white sm:p-10 lg:col-start-1 lg:row-start-2 lg:p-12">
+          <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-[0.65fr_1.35fr] lg:items-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#F5C45E]">
+                Key Highlights
+              </p>
+              <p className="mt-3 max-w-sm text-sm leading-6 text-white/60">
+                Practical protection designed around your goals, priorities, and financial journey.
+              </p>
+            </div>
+
+            <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-1">
+              {service.highlights.map((point, index) => (
+                <li key={`${service.title}-${index}`} className="flex items-start gap-4">
+                  <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-[#F5C45E]" />
+                  <span className="font-sans text-sm leading-6 text-white/85">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes serviceImageIn {
+          from {
+            opacity: 0;
+            transform: scale(1.04);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-service-image-in {
+          animation: serviceImageIn 550ms ease-out both;
+        }
+      `}</style>
     </div>
   );
 }
