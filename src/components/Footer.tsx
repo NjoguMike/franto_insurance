@@ -5,10 +5,10 @@ function Footer() {
   return (
     <footer className="bg-[#102E50] text-white">
       {/* Main Footer */}
-      <div className="grid gap-10 px-8 py-16 sm:px-12 md:grid-cols-[max-content_max-content] md:justify-between md:px-16 lg:px-20 lg:py-20">
+      <div className="grid gap-12 px-8 py-16 sm:px-12 md:grid-cols-[max-content_max-content] md:justify-between md:px-18 lg:px-20 lg:py-20">
         
         {/* Brand */}
-        <div className="flex flex-col justify-between gap-10">
+        <div className="flex flex-col justify-between gap-8">
           <div className="max-w-md">
             <h2 className="font-serif text-xl font-bold tracking-wide text-white sm:text-2xl"> Franto Insurance Agency </h2>
 
@@ -62,7 +62,7 @@ function Footer() {
         </div>
 
         {/* Footer Contact */}
-        <div>
+        <div className="mr-8">
           <h2 className="font-serif text-lg font-semibold tracking-wider text-[#F5C45E]"> Contact </h2>
 
           <div className="mt-5 flex flex-col gap-4 text-sm">

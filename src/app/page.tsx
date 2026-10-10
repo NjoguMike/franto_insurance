@@ -103,21 +103,9 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* =========================================================
-          SERVICES
-          
-          DESKTOP:
-          Three services displayed side-by-side.
-
-          MOBILE:
-          One service displayed at a time as a carousel.
-      ========================================================== */}
       <section className="relative h-screen snap-start overflow-hidden">
 
-        {/* =======================================================
-            DESKTOP — THREE SERVICES
-        ======================================================== */}
+        {/* ================== DESKTOP — THREE SERVICES ===================*/}
         <div className="hidden h-full lg:grid lg:grid-cols-3">
 
           {slides.map((slide, index) => (
@@ -131,37 +119,27 @@ export default function Home() {
 
               {/* Top information */}
               <div className="relative z-10">
-
                 <div className="flex items-center justify-between">
-
                   <span className="font-serif text-5xl font-semibold text-white/30">
                     0{index + 1}
                   </span>
-
                   <span className={`text-[10px] font-semibold uppercase tracking-[0.3em] ${index === 1 ? 'text-[var(--secondary)]' : 'text-[var(--accent)]'}`}>
                     {slide.eyebrow}
                   </span>
-
                 </div>
-
                 <div className="mt-7 h-px w-12 bg-[var(--secondary)]" />
-
                 <h2 className="mt-7 font-serif text-3xl font-semibold leading-tight text-white xl:text-4xl">
                   {slide.title}
                 </h2>
-
                 <p className="mt-5 max-w-sm text-sm leading-7 text-white/70 xl:text-base">
                   {slide.desc}
                 </p>
-
               </div>
-
 
               {/* Image */}
               <div className="relative z-10 flex flex-1 items-center justify-center">
-
                 <div
-                  className={`md:absolute sm:translate-x-1 md:translate-x-1/8 xl:translate-x-3/4 w-50 h-auto md:w-40 lg:w-60 aspect-square rounded-lg ${index === 1 ? 'bg-[var(--primary)]' : 'bg-[var(--accent)]'}`}
+                  className={`md:absolute sm:translate-x-1 md:translate-x-1/9 xl:translate-x-3/4 w-50 h-auto md:w-40 lg:w-60 aspect-square rounded-lg ${index === 1 ? 'bg-[var(--primary)]' : 'bg-[var(--accent)]'}`}
                   style={{
                     maskImage: `url(${slide.image})`,
                     WebkitMaskImage: `url(${slide.image})`,
@@ -173,30 +151,20 @@ export default function Home() {
                     WebkitMaskSize: "contain",
                   }}
                 />
-
               </div>
-
 
               {/* Bottom detail */}
               <div className="relative z-10">
-
                 <div className={`mb-5 h-px w-full ${index === 1 ? 'bg-[var(--secondary)]/30' : 'bg-white/10'}`} />
-
                 <p className={`text-[10px] uppercase tracking-[0.3em] ${index === 1 ? 'text-[var(--secondary)]' : 'text-white/40'}`}>
                   Endless Financial Possibilities
                 </p>
-
               </div>
-
             </article>
           ))}
-
         </div>
 
-
-        {/* =======================================================
-            MOBILE / TABLET — CAROUSEL
-        ======================================================== */}
+        {/* ===================== MOBILE / TABLET — CAROUSEL ====================== */}
         <div className="relative h-full lg:hidden">
 
           {/* Track */}
@@ -218,44 +186,28 @@ export default function Home() {
 
                 {/* Main slide content */}
                 <div className="relative z-10 flex h-full items-center px-5 py-20 sm:px-8">
-
                   <div className="grid w-full grid-cols-[1.1fr_0.9fr] items-center gap-3 sm:grid-cols-[1fr_1fr] sm:gap-6">
-
-                    {/* -----------------------------------------
-                        TEXT
-                    ------------------------------------------ */}
+                    {/* ----------------------- TEXT ------------------------ */}
                     <div className="min-w-0">
-
                       <div className="flex items-center gap-3">
-
                         <span className="font-serif text-4xl font-semibold text-white/40 sm:text-5xl">
                           0{index + 1}
                         </span>
-
                       </div>
-
                       <div className="mt-4 h-px w-10 bg-[var(--secondary)] sm:w-12" />
-
                       <p className={`mt-5 text-[9px] font-semibold uppercase tracking-[0.25em] ${index === 1 ? 'text-[var(--primary)]' : 'text-[var(--accent)]'} sm:text-[10px]`}>
                         {slide.eyebrow}
                       </p>
-
                       <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight text-white sm:text-4xl">
                         {slide.title}
                       </h2>
-
                       <p className="mt-4 max-w-xs text-xs leading-6 text-white/70 sm:text-sm sm:leading-7">
                         {slide.desc}
                       </p>
-
                     </div>
 
-
-                    {/* -----------------------------------------
-                        IMAGE
-                    ------------------------------------------ */}
+                    {/* ------------------------ IMAGE ------------------------- */}
                     <div className="relative flex min-h-[220px] items-center justify-center sm:min-h-[300px]">
-
                       <div
                         className={`aspect-square rounded-lg ${index === 1 ? 'bg-[var(--primary)]' : 'bg-[var(--accent)]'} relative z-10 max-h-[210px] w-full object-contain sm:max-h-[300px]`}
                         style={{
@@ -269,36 +221,27 @@ export default function Home() {
                           WebkitMaskSize: "contain",
                         }}
                       />
-
                     </div>
-
                   </div>
-
                 </div>
 
-
-                {/* ---------------------------------------------
-                    MOBILE NAVIGATION
-                ---------------------------------------------- */}
-                <div className="absolute bottom-7 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
+                <div className="absolute bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
                     onClick={prevSlide}
                     aria-label="Previous service"
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--primary)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="text-lg">
-                      ←
-                    </span>
+                    <span className="text-lg"> ← </span>
                   </button>
-
 
                   {/* Indicators */}
                   <div className="flex items-center gap-2">
 
                     {slides.map((item, itemIndex) => (
-                      <button
+                       <button
                         key={item.id}
                         type="button"
                         onClick={() => setCurrent(itemIndex)}
@@ -310,23 +253,17 @@ export default function Home() {
                         }`}
                       />
                     ))}
-
                   </div>
-
 
                   <button
                     type="button"
                     onClick={nextSlide}
                     aria-label="Next service"
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--primary)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="text-lg">
-                      →
-                    </span>
+                    <span className="text-lg"> → </span>
                   </button>
-
                 </div>
-
               </article>
             ))}
 
@@ -380,7 +317,7 @@ export default function Home() {
                 your financial journey with confidence.
               </p>
 
-              <div className="mt-10">
+              <div className="mt-10 flex justify-end gap-5 sm:mt-12 mr-12">
 
                 <Link
                   href="/about"
