@@ -111,7 +111,7 @@ export default function Home() {
           {slides.map((slide, index) => (
             <article
               key={slide.id}
-              className={`group relative flex h-full flex-col overflow-hidden ${index === 1 ? 'bg-[var(--accent)]' : 'bg-[var(--primary)]'} border-r border-white/10 px-8 py-14' : 'border-r border-white/10 px-8 py-14 last:border-r-0 xl:px-12'}`}
+              className={`group relative flex h-full flex-col overflow-hidden ${index === 1 ? 'bg-[var(--accent)]' : 'bg-[var(--primary)]'} border-r border-white/10 px-8 py-14 last:border-r-0 xl:px-12`}
             >
 
               {/* Decorative circle */}
@@ -224,44 +224,41 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute bottom-24 sm:bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Previous service"
+                  className={`absolute left-4 top-5/6 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border ${index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25'} bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:left-8 sm:h-11 sm:w-11`}
+                >
+                  <span aria-hidden="true" className="text-lg">←</span>
+                </button>
 
-                  <button
-                    type="button"
-                    onClick={prevSlide}
-                    aria-label="Previous service"
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border ${ index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25' } bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
-                  >
-                    <span className="text-lg"> ← </span>
-                  </button>
-
-                  {/* Indicators */}
-                  <div className="flex items-center gap-2">
-
-                    {slides.map((item, itemIndex) => (
-                       <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => setCurrent(itemIndex)}
-                        aria-label={`Go to ${item.eyebrow}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          current === itemIndex
-                            ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}`
-                            : "w-2 bg-white/35"
-                        }`}
-                      />
-                    ))}
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={nextSlide}
-                    aria-label="Next service"
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border ${ index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25' } bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
-                  >
-                    <span className="text-lg"> → </span>
-                  </button>
+                {/* Indicators stay centered near the bottom of the slide. */}
+                <div className="absolute bottom-18 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center gap-2 sm:bottom-8">
+                  {slides.map((item, itemIndex) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setCurrent(itemIndex)}
+                      aria-label={`Go to ${item.eyebrow}`}
+                      aria-current={current === itemIndex ? "true" : undefined}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        current === itemIndex
+                          ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}`
+                          : "w-2 bg-white/35"
+                      }`}
+                    />
+                  ))}
                 </div>
+
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next service"
+                  className={`absolute right-4 top-5/6 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border ${index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25'} bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:right-8 sm:h-11 sm:w-11`}
+                >
+                  <span aria-hidden="true" className="text-lg">→</span>
+                </button>
               </article>
             ))}
 
