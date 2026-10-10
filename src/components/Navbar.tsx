@@ -85,7 +85,7 @@ function Navbar() {
 
         {/* =========================        MOBILE NAVIGATION        ========================= */}
         <div className={` absolute left-0 top-full w-full overflow-hidden bg-[var(--background)] backdrop-blur-md shadow-lg sm:hidden transition-all duration-300 ease-in-out ${ mobileMenuOpen ? "block" : "hidden" }`}>
-          <nav className=" flex flex-col items-center text-[var(--primary)] " >
+          <nav className=" flex flex-col items-center text-[var(--primary)] transition-all duration-300 ease-in-out" onClick={handleNavigation}>
             {NavItem}
           </nav>
         </div>
