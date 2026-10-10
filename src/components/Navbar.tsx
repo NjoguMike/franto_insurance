@@ -60,11 +60,11 @@ function Navbar() {
   return (
     <>
       {/* =========================    NAVBAR      ========================= */}
-      <header className=" fixed top-0 left-0 z-50 w-full px-6 sm:px-10 py-6 sm:py-10 text-white bg-[var(--primary)] sm:bg-transparent ">
+      <header className=" fixed top-0 left-0 z-50 w-full px-6 sm:px-10 py-6 sm:py-10 text-white sm:bg-transparent ">
         <div className="flex w-full items-center justify-between">
           {/* =========================         LOGO          ========================= */}
           <Link href="/" onClick={handleNavigation} className="flex items-center gap-2"  >
-            <img src="/header2_logo.png" alt="Franto Insurance" className=" ml-10 mt-2 w-8 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
+            <img src="/header2_logo.png" alt="Franto Insurance" className=" ml-2 md:ml-8 mt-2 w-8 h-auto sm:w-10 rounded-lg object-cover drop-shadow-lg " />
           </Link>
           {/* =========================              DESKTOP NAVIGATION          ========================= */}
           <nav className="min-w-100 hidden sm:flex flex-row items-center gap-2 rounded-full bg-[#102E50] px-10 py-3 text-sm font-medium backdrop-blur-md shadow-lg " >
@@ -75,7 +75,7 @@ function Navbar() {
           <button
             type="button"
             onClick={handleMobileMenuToggle}
-            className=" flex sm:hidden cursor-pointer items-center justify-center text-[var(--background)] transition-all duration-300 hover:scale-110 hover:text-[var(--accent)] "
+            className=" flex sm:hidden cursor-pointer items-center justify-center text-[var(--accent)] transition-all duration-300 hover:scale-110 hover:text-[var(--accent)] "
             aria-label={ mobileMenuOpen ? "Close navigation" : "Open navigation" }
             aria-expanded={mobileMenuOpen}
           >
@@ -84,7 +84,7 @@ function Navbar() {
         </div>
 
         {/* =========================        MOBILE NAVIGATION        ========================= */}
-        <div className={` absolute left-0 top-full w-full overflow-hidden bg-[var(--background)] backdrop-blur-md shadow-lg sm:hidden transition-all duration-300 ease-in-out border-t ${ mobileMenuOpen ? "block" : "hidden" }`}>
+        <div className={` absolute left-0 top-full w-full overflow-hidden bg-[var(--background)] backdrop-blur-md shadow-lg sm:hidden transition-all duration-300 ease-in-out ${ mobileMenuOpen ? "block" : "hidden" }`}>
           <nav className=" flex flex-col items-center text-[var(--primary)] " >
             {NavItem}
           </nav>

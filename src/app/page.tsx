@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <main className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth scrollbar-none">
 
-      {/* ============================          HERO      ========================== */}
+      {/* ================      HERO      ================ */}
       <section
         className="relative min-h-screen snap-start overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/HeroImage.jpg')" }}
@@ -170,9 +170,7 @@ export default function Home() {
           {/* Track */}
           <div
             className="flex h-full transition-transform duration-500 ease-out"
-            style={{
-              transform: `translateX(-${current * 100}%)`,
-            }}
+            style={{ transform: `translateX(-${current * 100}%)` }}
           >
 
             {slides.map((slide, index) => (
@@ -185,16 +183,16 @@ export default function Home() {
                 <div className={`absolute -bottom-24 -right-18 h-[450px] w-[450px] rounded-full ${index === 1 ? 'border border-[var(--secondary)]/70' : 'border border-white/10'}`} />
 
                 {/* Main slide content */}
-                <div className="relative z-10 flex h-full items-center px-5 py-20 sm:px-8">
+                <div className="relative z-10 flex h-full items-start sm:items-center px-5 py-20 sm:px-8">
                   <div className="grid w-full grid-cols-[1.1fr_0.9fr] items-center gap-3 sm:grid-cols-[1fr_1fr] sm:gap-6">
                     {/* ----------------------- TEXT ------------------------ */}
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex flex-col">
                       <div className="flex items-center gap-3">
                         <span className="font-serif text-4xl font-semibold text-white/40 sm:text-5xl">
                           0{index + 1}
                         </span>
                       </div>
-                      <div className="mt-4 h-px w-10 bg-[var(--secondary)] sm:w-12" />
+                      <div className="my-6 h-px w-10 bg-[var(--secondary)] sm:w-12" />
                       <p className={`mt-5 text-[9px] font-semibold uppercase tracking-[0.25em] ${index === 1 ? 'text-[var(--primary)]' : 'text-[var(--accent)]'} sm:text-[10px]`}>
                         {slide.eyebrow}
                       </p>
@@ -226,7 +224,7 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <div className="absolute bottom-18 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
