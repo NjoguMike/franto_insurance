@@ -184,7 +184,7 @@ export default function Home() {
 
                 {/* Main slide content */}
                 <div className="relative z-10 flex h-full items-start sm:items-center px-5 py-20 sm:px-8">
-                  <div className="grid w-full grid-cols-[1.1fr_0.9fr] items-center gap-3 sm:grid-cols-[1fr_1fr] sm:gap-6">
+                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-3 sm:grid-cols-[1fr_1fr] sm:gap-6">
                     {/* ----------------------- TEXT ------------------------ */}
                     <div className="min-w-0 flex flex-col">
                       <div className="flex items-center gap-3">
@@ -224,7 +224,7 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute bottom-18 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <div className="absolute bottom-24 sm:bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
