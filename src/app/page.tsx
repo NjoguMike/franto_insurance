@@ -278,7 +278,7 @@ export default function Home() {
                         type="button"
                         onClick={() => setCurrent(itemIndex)}
                         aria-label={`Go to ${item.eyebrow}`}
-                        className={`h-1 rounded-full transition-all duration-300 ${
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
                           current === itemIndex ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}` : "w-2 bg-white/35"
                         }`}
                       />
