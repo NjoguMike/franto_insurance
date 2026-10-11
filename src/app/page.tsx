@@ -259,7 +259,7 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute inset-x-0 bottom-0 z-20 flex items-center justify-between bg-[var(--primary)] px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 sm:px-8">
+                <div className="absolute inset-x-0 bottom-0 z-20 flex items-center justify-between px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-3 sm:px-8">
 
                   <button
                     type="button"
@@ -267,7 +267,7 @@ export default function Home() {
                     aria-label="Previous service"
                     className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="text-lg"> ← </span>
+                    <span className="text-lg "> ← </span>
                   </button>
 
                   {/* Indicators */}
@@ -278,7 +278,7 @@ export default function Home() {
                         type="button"
                         onClick={() => setCurrent(itemIndex)}
                         aria-label={`Go to ${item.eyebrow}`}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                        className={`h-1 rounded-full transition-all duration-300 ${
                           current === itemIndex ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}` : "w-2 bg-white/35"
                         }`}
                       />
