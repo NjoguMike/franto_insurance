@@ -232,7 +232,7 @@ export default function Home() {
                     aria-label="Previous service"
                     className={`flex h-10 w-10 items-center justify-center rounded-full border ${ index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25' } bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="text-lg"> ← </span>
+                    <span className="block text-lg leading-none"> ← </span>
                   </button>
 
                   {/* Indicators */}
@@ -257,9 +257,9 @@ export default function Home() {
                     type="button"
                     onClick={nextSlide}
                     aria-label="Next service"
-                    className={`flex h-10 w-10 items-center -top-3/4 justify-center rounded-full border ${ index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25' } bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border ${ index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25' } bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="text-lg"> → </span>
+                    <span className="block text-lg leading-none"> → </span>
                   </button>
                 </div>
               </article>
