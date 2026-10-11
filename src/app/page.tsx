@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 
 interface Slide {
@@ -37,6 +37,27 @@ export default function Home() {
   ];
 
   const [current, setCurrent] = useState(0);
+
+  const dragStartX = useRef<number | null>(null);
+  const dragCurrentX = useRef<number | null>(null);
+
+  const handleDragStart = (e: React.PointerEvent<HTMLDivElement>) => {
+    dragStartX.current = e.clientX;
+    dragCurrentX.current = e.clientX;
+  };
+
+  const handleDragEnd = () => {
+    if (dragStartX.current === null || dragCurrentX.current === null) return;
+
+    const distance = dragCurrentX.current - dragStartX.current;
+    const threshold = 50;
+
+    if (distance < -threshold) nextSlide();
+    else if (distance > threshold) prevSlide();
+
+    dragStartX.current = null;
+    dragCurrentX.current = null;
+  };
 
   const prevSlide = () => { setCurrent((prev) => prev === 0 ? slides.length - 1 : prev - 1 );  };
   const nextSlide = () => { setCurrent((prev) => prev === slides.length - 1 ? 0 : prev + 1 );  };
@@ -169,8 +190,18 @@ export default function Home() {
 
           {/* Track */}
           <div
-            className="flex h-full transition-transform duration-500 ease-out"
+            className="flex h-full touch-pan-y select-none transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${current * 100}%)` }}
+            onPointerDown={(e) => {
+              dragStartX.current = e.clientX;
+              dragCurrentX.current = e.clientX;
+              e.currentTarget.setPointerCapture(e.pointerId);
+            }}
+            onPointerMove={(e) => {
+              if (dragStartX.current !== null) dragCurrentX.current = e.clientX;
+            }}
+            onPointerUp={handleDragEnd}
+            onPointerCancel={handleDragEnd}
           >
 
             {slides.map((slide, index) => (
