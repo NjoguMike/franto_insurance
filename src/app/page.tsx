@@ -193,15 +193,18 @@ export default function Home() {
             className="flex h-full touch-pan-y select-none transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${current * 100}%)` }}
             onPointerDown={(e) => {
+              if ((e.target as HTMLElement).closest("button, a")) return;
               dragStartX.current = e.clientX;
               dragCurrentX.current = e.clientX;
-              e.currentTarget.setPointerCapture(e.pointerId);
             }}
             onPointerMove={(e) => {
-              if (dragStartX.current !== null) dragCurrentX.current = e.clientX;
+              if (dragStartX.current !== null) { dragCurrentX.current = e.clientX }
             }}
             onPointerUp={handleDragEnd}
-            onPointerCancel={handleDragEnd}
+            onPointerCancel={() => {
+              dragStartX.current = null;
+              dragCurrentX.current = null;
+            }}
           >
 
             {slides.map((slide, index) => (
@@ -219,6 +222,7 @@ export default function Home() {
                     {/* ----------------------- TEXT ------------------------ */}
                     <div className="min-w-0 flex flex-col">
                       <div className="flex items-center gap-3">
+                      
                         <span className="font-serif text-4xl font-semibold text-white/40 sm:text-5xl">
                           0{index + 1}
                         </span>
@@ -276,9 +280,7 @@ export default function Home() {
                         onClick={() => setCurrent(itemIndex)}
                         aria-label={`Go to ${item.eyebrow}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
-                          current === itemIndex
-                            ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}`
-                            : "w-2 bg-white/35"
+                          current === itemIndex ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}` : "w-2 bg-white/35"
                         }`}
                       />
                     ))}
@@ -295,21 +297,14 @@ export default function Home() {
                 </div>
               </article>
             ))}
-
           </div>
-
         </div>
-
       </section>
 
 
-      {/* =========================================================
-          WHO WE ARE
-      ========================================================== */}
+      {/* =========================== WHO WE ARE  ============================ */}
       <section className="relative min-h-screen snap-start overflow-hidden bg-[var(--background)]">
-
         <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 sm:px-10 lg:px-20">
-
           <div className="grid w-full gap-14 lg:grid-cols-2 lg:items-center lg:gap-24">
 
             {/* Left */}
