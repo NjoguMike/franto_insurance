@@ -184,7 +184,7 @@ export default function Home() {
 
                 {/* Main slide content */}
                 <div className="relative z-10 flex h-full items-start sm:items-center px-5 py-30 sm:px-8">
-                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-6 sm:grid-cols-[1fr_1fr] sm:gap-6">
+                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-10 sm:grid-cols-[1fr_1fr] sm:gap-6">
                     {/* ----------------------- TEXT ------------------------ */}
                     <div className="min-w-0 flex flex-col">
                       <div className="flex items-center gap-3">
@@ -205,7 +205,7 @@ export default function Home() {
                     </div>
 
                     {/* ------------------------ IMAGE ------------------------- */}
-                    <div className="relative flex min-h-[380px] items-center justify-center md:min-h-[350px] sm:min-h-[400px]">
+                    <div className="relative flex min-h-[220px] items-center justify-center sm:min-h-[300px]">
                       <div
                         className={`aspect-square rounded-lg ${index === 1 ? 'bg-[var(--primary)]' : 'bg-[var(--accent)]'} relative z-10 max-h-[210px] w-full object-contain sm:max-h-[300px]`}
                         style={{
@@ -224,19 +224,19 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute top-6/7 sm:bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <div className="absolute bottom-20 sm:bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
                     onClick={prevSlide}
                     aria-label="Previous service"
-                    className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border leading-none ${index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25'} bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="block text-lg leading-none"> ← </span>
+                    <span className="text-lg"> ← </span>
                   </button>
 
                   {/* Indicators */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 mt-10 sm:mt-0">
 
                     {slides.map((item, itemIndex) => (
                        <button
@@ -257,9 +257,9 @@ export default function Home() {
                     type="button"
                     onClick={nextSlide}
                     aria-label="Next service"
-                    className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border leading-none ${index === 1 ? 'border-[var(--secondary)]/40' : 'border-white/25'} bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
                   >
-                    <span className="block text-lg leading-none"> → </span>
+                    <span className="text-lg"> → </span>
                   </button>
                 </div>
               </article>
