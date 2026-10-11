@@ -186,158 +186,119 @@ export default function Home() {
         </div>
 
         {/* ===================== MOBILE / TABLET — CAROUSEL ====================== */}
-<div className="relative h-full lg:hidden">
-  {/* Track */}
-  <div
-    className="flex h-full touch-pan-y select-none transition-transform duration-500 ease-out motion-reduce:transition-none"
-    style={{ transform: `translate3d(-${current * 100}%, 0, 0)` }}
-    onPointerDown={(e) => {
-      if (!e.isPrimary || (e.pointerType === "mouse" && e.button !== 0)) return;
-      if ((e.target as HTMLElement).closest("button, a")) return;
-      dragStartX.current = e.clientX;
-      dragCurrentX.current = e.clientX;
-    }}
-    onPointerMove={(e) => {
-      if (dragStartX.current !== null) dragCurrentX.current = e.clientX;
-    }}
-    onPointerUp={handleDragEnd}
-    onPointerCancel={() => {
-      dragStartX.current = null;
-      dragCurrentX.current = null;
-    }}
-    onLostPointerCapture={() => {
-      dragStartX.current = null;
-      dragCurrentX.current = null;
-    }}
-  >
-    {slides.map((slide, index) => (
-      <article
-        key={slide.id}
-        aria-roledescription="slide"
-        aria-label={`${index + 1} of ${slides.length}: ${slide.eyebrow}`}
-        className={`relative flex h-full min-h-0 w-full shrink-0 flex-col overflow-hidden ${
-          index === 1 ? "bg-[var(--accent)]" : "bg-[var(--primary)]"
-        }`}
-      >
-        <div
-          aria-hidden="true"
-          className={`pointer-events-none absolute -bottom-24 -right-24 h-[min(450px,100vw)] w-[min(450px,100vw)] rounded-full border ${
-            index === 1 ? "border-[var(--secondary)]/70" : "border-white/10"
-          }`}
-        />
+        <div className="relative h-dvh min-h-[560px] overflow-hidden lg:hidden">
 
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col px-5 pb-24 pt-6 sm:px-8 sm:pb-28 sm:pt-10">
-          <div className="flex items-center justify-between">
-            <span className="font-serif text-4xl font-semibold text-white/40 sm:text-5xl">
-              0{index + 1}
-            </span>
-            <span
-              className={`text-[9px] font-semibold uppercase tracking-[0.2em] sm:text-[10px] sm:tracking-[0.25em] ${
-                index === 1 ? "text-[var(--primary)]" : "text-[var(--accent)]"
-              }`}
-            >
-              {slide.eyebrow}
-            </span>
-          </div>
-
-          <div className="my-4 h-px w-10 shrink-0 bg-[var(--secondary)] sm:my-6 sm:w-12" />
-
-          <h2 className="max-w-sm font-serif text-[clamp(1.5rem,6vw,2.25rem)] font-semibold leading-tight text-white">
-            {slide.title}
-          </h2>
-
-          <p className="mt-3 max-w-sm text-xs leading-5 text-white/75 sm:mt-4 sm:text-sm sm:leading-7">
-            {slide.desc}
-          </p>
-
-          <div className="flex min-h-0 flex-1 items-center justify-center py-4">
-            <div
-              role="img"
-              aria-label={`${slide.eyebrow} illustration`}
-              className={`aspect-square w-[min(58vw,230px)] max-h-[28dvh] max-w-full rounded-lg ${
-                index === 1 ? "bg-[var(--primary)]" : "bg-[var(--accent)]"
-              }`}
-              style={{
-                maskImage: `url(${slide.image})`,
-                WebkitMaskImage: `url(${slide.image})`,
-                maskRepeat: "no-repeat",
-                WebkitMaskRepeat: "no-repeat",
-                maskPosition: "center",
-                WebkitMaskPosition: "center",
-                maskSize: "contain",
-                WebkitMaskSize: "contain",
-              }}
-            />
-          </div>
-
-          <div className={`mb-3 h-px w-full shrink-0 ${
-            index === 1 ? "bg-[var(--secondary)]/30" : "bg-white/15"
-          }`} />
-          <p
-            className={`shrink-0 text-[9px] uppercase tracking-[0.15em] sm:text-[10px] sm:tracking-[0.2em] ${
-              index === 1 ? "text-[var(--secondary)]" : "text-white/50"
-            }`}
+          {/* Track */}
+          <div
+            className="flex h-full touch-pan-y select-none transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+            onPointerDown={(e) => {
+              if ((e.target as HTMLElement).closest("button, a")) return;
+              dragStartX.current = e.clientX;
+              dragCurrentX.current = e.clientX;
+            }}
+            onPointerMove={(e) => {
+              if (dragStartX.current !== null) { dragCurrentX.current = e.clientX }
+            }}
+            onPointerUp={handleDragEnd}
+            onPointerCancel={() => {
+              dragStartX.current = null;
+              dragCurrentX.current = null;
+            }}
           >
-            Endless Financial Possibilities
-          </p>
-        </div>
 
-        <div className="absolute bottom-4 left-5 right-5 z-20 flex items-center justify-between sm:bottom-6 sm:left-8 sm:right-8">
-          <button
-            type="button"
-            onClick={prevSlide}
-            aria-label="Previous service"
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
-              index === 1
-                ? "hover:bg-[var(--secondary)] hover:text-[var(--background)]"
-                : "hover:bg-[var(--accent)] hover:text-[var(--primary)]"
-            }`}
-          >
-            <span className="text-xl leading-none" aria-hidden="true">←</span>
-          </button>
-
-          <div className="flex items-center gap-2" role="group" aria-label="Choose a service">
-            {slides.map((item, itemIndex) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setCurrent(itemIndex)}
-                aria-label={`Go to ${item.eyebrow}`}
-                aria-current={current === itemIndex ? "step" : undefined}
-                className="flex min-h-11 min-w-7 items-center justify-center px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            {slides.map((slide, index) => (
+              <article
+                key={slide.id}
+                className={`relative h-full w-full flex-shrink-0 overflow-hidden ${index === 1 ? 'bg-[var(--accent)]' : 'bg-[var(--primary)]'}`}
               >
-                <span
-                  className={`block h-1.5 rounded-full transition-all duration-300 ${
-                    current === itemIndex
-                      ? `w-9 ${
-                          itemIndex === 1
-                            ? "bg-[var(--secondary)]"
-                            : "bg-[var(--accent)]"
-                        }`
-                      : "w-2 bg-white/35"
-                  }`}
-                />
-              </button>
+
+                {/* Decorative circle */}
+                <div className={`absolute -bottom-24 -right-18 h-[450px] w-[450px] rounded-full ${index === 1 ? 'border border-[var(--secondary)]/70' : 'border border-white/10'}`} />
+
+                {/* Main slide content */}
+                <div className="relative z-10 flex min-h-0 h-full flex-col px-5 pb-24 pt-24 sm:px-8 sm:pb-28 sm:pt-10">
+                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-14 sm:grid-cols-[1fr_1fr] sm:gap-14">
+                    {/* ----------------------- TEXT ------------------------ */}
+                    <div className="min-w-0 flex flex-col">
+                      <div className="flex items-center gap-3">
+                      
+                        <span className="font-serif text-4xl font-semibold text-white/40 sm:text-5xl">
+                          0{index + 1}
+                        </span>
+                      </div>
+                      <div className="my-6 h-px w-10 bg-[var(--secondary)] sm:w-12" />
+                      <p className={`mt-5 text-[9px] font-semibold uppercase tracking-[0.25em] ${index === 1 ? 'text-[var(--primary)]' : 'text-[var(--accent)]'} sm:text-[10px]`}>
+                        {slide.eyebrow}
+                      </p>
+                      <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight text-white sm:text-4xl">
+                        {slide.title}
+                      </h2>
+                      <p className="mt-4 max-w-xs text-xs leading-6 text-white/70 sm:text-sm sm:leading-7">
+                        {slide.desc}
+                      </p>
+                    </div>
+
+                    {/* ------------------------ IMAGE ------------------------- */}
+                    <div className="relative flex min-h-[220px] items-center justify-center sm:min-h-[300px]">
+                      <div
+                        className={`aspect-square rounded-lg ${index === 1 ? 'bg-[var(--primary)]' : 'bg-[var(--accent)]'} relative z-10 max-h-[210px] w-full object-contain sm:max-h-[300px]`}
+                        style={{
+                          maskImage: `url(${slide.image})`,
+                          WebkitMaskImage: `url(${slide.image})`,
+                          maskRepeat: "no-repeat",
+                          WebkitMaskRepeat: "no-repeat",
+                          maskPosition: "center",
+                          WebkitMaskPosition: "center",
+                          maskSize: "contain",
+                          WebkitMaskSize: "contain",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
+                <div className="absolute inset-x-0 bottom-0 z-20 flex items-center justify-between bg-[var(--primary)] px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 sm:px-8">
+
+                  <button
+                    type="button"
+                    onClick={prevSlide}
+                    aria-label="Previous service"
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                  >
+                    <span className="text-lg"> ← </span>
+                  </button>
+
+                  {/* Indicators */}
+                  <div className="flex items-center gap-2 mt-2">
+                    {slides.map((item, itemIndex) => (
+                       <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setCurrent(itemIndex)}
+                        aria-label={`Go to ${item.eyebrow}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          current === itemIndex ? `w-9 ${itemIndex === 1 ? 'bg-[var(--secondary)]' : 'bg-[var(--accent)]'}` : "w-2 bg-white/35"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    aria-label="Next service"
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 ${index === 1 ? 'hover:bg-[var(--secondary)] hover:text-[var(--background)]' : 'hover:bg-[var(--accent)] hover:text-[var(--primary)]'} sm:h-11 sm:w-11`}
+                  >
+                    <span className="text-lg"> → </span>
+                  </button>
+                </div>
+              </article>
             ))}
           </div>
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Next service"
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
-              index === 1
-                ? "hover:bg-[var(--secondary)] hover:text-[var(--background)]"
-                : "hover:bg-[var(--accent)] hover:text-[var(--primary)]"
-            }`}
-          >
-            <span className="text-xl leading-none" aria-hidden="true">→</span>
-          </button>
         </div>
-      </article>
-    ))}
-  </div>
-</div>      </section>
+      </section>
 
       {/* =========================== WHO WE ARE  ============================ */}
       <section className="relative min-h-screen snap-start overflow-hidden bg-[var(--background)]">
