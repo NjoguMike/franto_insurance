@@ -218,7 +218,7 @@ export default function Home() {
 
                 {/* Main slide content */}
                 <div className="relative z-10 flex h-full items-start sm:items-center px-5 py-30 sm:px-8">
-                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-10 sm:grid-cols-[1fr_1fr] sm:gap-6">
+                  <div className="grid w-full grid-cols-[1.1fr] items-center gap-14 sm:grid-cols-[1fr_1fr] sm:gap-14">
                     {/* ----------------------- TEXT ------------------------ */}
                     <div className="min-w-0 flex flex-col">
                       <div className="flex items-center gap-3">
@@ -259,7 +259,7 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute bottom-20 sm:bottom-12 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <div className="absolute bottom-14 sm:bottom-30 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
@@ -271,7 +271,7 @@ export default function Home() {
                   </button>
 
                   {/* Indicators */}
-                  <div className="flex items-center gap-2 mt-10 sm:mt-0">
+                  <div className="flex items-center gap-2 mt-2">
 
                     {slides.map((item, itemIndex) => (
                        <button
@@ -301,7 +301,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* =========================== WHO WE ARE  ============================ */}
       <section className="relative min-h-screen snap-start overflow-hidden bg-[var(--background)]">
         <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 sm:px-10 lg:px-20">
@@ -318,7 +317,6 @@ export default function Home() {
 
               <h2 className="font-serif text-4xl font-semibold leading-tight text-[var(--primary)] sm:text-5xl lg:text-6xl">
                 Financial confidence,
-
                 <span className="block text-[var(--accent)]">
                   built around you.
                 </span>
