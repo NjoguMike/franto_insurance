@@ -259,7 +259,7 @@ export default function Home() {
                 </div>
 
                 {/* --------------------------- MOBILE NAVIGATION ---------------------------- */}
-                <div className="absolute bottom-14 sm:bottom-30 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
+                <div className="absolute mb-10 bottom-10 sm:bottom-10 left-5 right-5 z-20 flex items-center justify-between sm:left-8 sm:right-8">
 
                   <button
                     type="button"
@@ -272,7 +272,6 @@ export default function Home() {
 
                   {/* Indicators */}
                   <div className="flex items-center gap-2 mt-2">
-
                     {slides.map((item, itemIndex) => (
                        <button
                         key={item.id}
